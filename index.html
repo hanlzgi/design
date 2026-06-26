@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>보훈 교재</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+  <link rel="stylesheet" href="tokens/design-tokens.css" />
+  <link rel="stylesheet" href="assets/css/app.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/quill@1.3.7/dist/quill.snow.css" />
+</head>
+<body>
+  <div class="app">
+    <div class="stageWrap" id="stageWrap">
+      <div class="stage" id="stage"></div>
+      <div class="chrome" id="chrome"></div>
+
+      <div class="pager">
+        <button id="prev" aria-label="이전">‹</button>
+        <span class="pos" id="pagerPos">1 / 1</span>
+        <button id="next" aria-label="다음">›</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 검색 오버레이 -->
+  <div class="search-ov" id="searchOv">
+    <button class="close" id="searchClose" aria-label="닫기">×</button>
+    <input id="searchInput" placeholder="전체 교재에서 검색 (페이지 제목)" />
+    <div class="results" id="searchRes"></div>
+  </div>
+
+  <!-- 세로모드 경고 -->
+  <div class="portrait">
+    <div class="rot">📱</div>
+    <div class="msg">가로 모드로 봐 주세요</div>
+    <div class="sub">보훈 교재는 가로 화면에 최적화되어 있습니다.</div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/quill@1.3.7/dist/quill.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/html2pdf.js@0.10.1/dist/html2pdf.bundle.min.js"></script>
+  <script src="content/01_title.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

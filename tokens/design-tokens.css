@@ -1,0 +1,43 @@
+/* =========================================================
+   디자인 토큰 — 보훈탐방 디지털 교재
+   4개 AI 문서 스캔에서 추출한 공통 팔레트/타이포/폰트
+   타입 스케일은 1920x1080 기준 px (16:9 뷰어에서 스케일링)
+   ========================================================= */
+:root {
+  /* ---- Brand ---- */
+  --color-primary:        #393973;
+  --color-primary-deep:   #20194f;
+  --color-accent:         #8b95ff;
+  --color-accent-coral:   #ff8f9a;
+  --color-accent-coral-soft: #ffc7cd;
+
+  /* ---- Surface ---- */
+  --color-bg:        #ffffff;
+  --color-surface:   #f3f6ff;
+
+  /* ---- Text / Neutral ---- */
+  --color-text:    #1d1d1b;
+  --color-text-2:  #333333;
+  --color-text-3:  #575756;
+  --color-on-dark: #ffffff;
+
+  /* ---- Type scale (px @1920 baseline) ---- */
+  --fs-display: 163px;
+  --fs-h1:       77px;
+  --fs-h2:       44px;
+  --fs-h3:       41px;
+  --fs-title:    43px;
+  --fs-body:     21px;
+  --fs-caption:  18px;
+
+  /* ---- Font families ---- */
+  --font-sans:          "Pretendard", system-ui, sans-serif;
+  --font-rounded:       "NanumSquare", "Pretendard", sans-serif;
+  --font-display-title: "Shilla_CultureB", "NanumSquare", serif;
+  --font-display-quiz:  "MungyeongGamhongApple", "Pretendard", sans-serif;
+
+  /* ---- Layout ---- */
+  --stage-w: 1920;
+  --stage-h: 1080;
+  --aspect: 16 / 9;
+}
