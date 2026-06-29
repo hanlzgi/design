@@ -210,8 +210,8 @@
     {
      "type": "add",
      "rect": {
-      "x": 1022,
-      "y": 941,
+      "x": 1020,
+      "y": 935,
       "w": 118,
       "h": 39
      },
@@ -222,12 +222,12 @@
    "photoSlots": [
     {
      "rect": {
-      "x": 322,
-      "y": 500,
+      "x": 315,
+      "y": 410,
       "w": 603,
-      "h": 376
+      "h": 533
      },
-     "radius": 24
+     "radius": 20
     }
    ],
    "hasText": true,
@@ -245,8 +245,8 @@
     },
     {
      "id": "title",
-     "x": 314,
-     "y": 212,
+     "x": 315,
+     "y": 210,
      "w": 1200,
      "size": 50,
      "color": "#393973",
@@ -256,22 +256,22 @@
     },
     {
      "id": "body",
-     "x": 1022,
-     "y": 414,
+     "x": 1020,
+     "y": 410,
      "w": 709,
      "size": 25,
      "color": "#0d0e12",
      "family": "sans",
      "weight": 400,
      "align": "left",
-     "lineHeight": 1.6,
+     "lineHeight": 1.5,
      "multi": true
     },
     {
      "id": "caption",
      "x": 449,
      "y": 894,
-     "w": 350,
+     "w": 400,
      "size": 20,
      "color": "#333333",
      "family": "sans",
@@ -314,7 +314,7 @@
      "id": "s1",
      "type": "section",
      "x": 315,
-     "y": 380,
+     "y": 375,
      "w": 1010,
      "size": 25,
      "color": "#1d1d1b",
@@ -349,7 +349,7 @@
     {
      "id": "caption1",
      "x": 1468,
-     "y": 661,
+     "y": 640,
      "w": 196,
      "size": 20,
      "color": "#333333",
@@ -360,7 +360,7 @@
     {
      "id": "caption2",
      "x": 1465,
-     "y": 960,
+     "y": 930,
      "w": 202,
      "size": 20,
      "color": "#333333",
@@ -373,7 +373,7 @@
     {
      "rect": {
       "x": 1400,
-      "y": 390,
+      "y": 415,
       "w": 330,
       "h": 218
      },
@@ -382,7 +382,7 @@
     {
      "rect": {
       "x": 1400,
-      "y": 700,
+      "y": 705,
       "w": 330,
       "h": 218
      },
@@ -537,7 +537,7 @@
      "id": "title",
      "x": 315,
      "y": 210,
-     "w": 1200,
+     "w": 1250,
      "size": 50,
      "color": "#393973",
      "family": "sans",
@@ -582,10 +582,10 @@
    "photoSlots": [
     {
      "rect": {
-      "x": 314,
+      "x": 315,
       "y": 400,
-      "w": 604,
-      "h": 458
+      "w": 603,
+      "h": 490
      },
      "radius": 20
     }
@@ -594,7 +594,7 @@
     {
      "type": "add",
      "rect": {
-      "x": 1020,
+      "x": 1000,
       "y": 905,
       "w": 118,
       "h": 39
@@ -605,7 +605,7 @@
     {
      "type": "add",
      "rect": {
-      "x": 1150,
+      "x": 1130,
       "y": 905,
       "w": 118,
       "h": 39
@@ -616,7 +616,7 @@
     {
      "type": "add",
      "rect": {
-      "x": 1280,
+      "x": 1260,
       "y": 905,
       "w": 118,
       "h": 39
@@ -649,7 +649,7 @@
     {
      "id": "badge",
      "x": 345,
-     "y": 100,
+     "y": 130,
      "w": 80,
      "size": 34,
      "color": "#ffffff",
@@ -660,7 +660,7 @@
      "id": "title",
      "x": 315,
      "y": 210,
-     "w": 1200,
+     "w": 1250,
      "size": 50,
      "color": "#393973",
      "family": "sans",
@@ -684,7 +684,7 @@
      "x": 315,
      "y": 575,
      "w": 1010,
-     "size": 20,
+     "size": 25,
      "color": "#1d1d1b",
      "family": "sans",
      "weight": 400,
@@ -704,8 +704,8 @@
     },
     {
      "id": "caption1",
-     "x": 1550,
-     "y": 646,
+     "x": 1420,
+     "y": 615,
      "w": 300,
      "size": 20,
      "color": "#333333",
@@ -715,21 +715,10 @@
     },
     {
      "id": "caption2",
-     "x": 1483,
-     "y": 933,
+     "x": 1410,
+     "y": 905,
      "w": 300,
      "size": 20,
-     "color": "#333333",
-     "family": "sans",
-     "weight": 400,
-     "align": "center"
-    },
-    {
-     "id": "caption3",
-     "x": 1078,
-     "y": 937,
-     "w": 337,
-     "size": 24,
      "color": "#333333",
      "family": "sans",
      "weight": 400,
@@ -762,7 +751,7 @@
       "w": 361,
       "h": 220
      },
-     "radius": 14
+     "radius": 20
     }
    ],
    "buttons": []
@@ -775,13 +764,12 @@
    "available": true,
    "render": "image",
    "mapPin": true,
-   "image": "assets/c1/full/c1-read3.webp",
    "hasText": true,
    "textBlocks": [
     {
      "id": "badge",
-     "x": 305,
-     "y": 140,
+     "x": 315,
+     "y": 130,
      "w": 147,
      "size": 34,
      "color": "#ffffff",
@@ -790,10 +778,10 @@
     },
     {
      "id": "title",
-     "x": 314,
-     "y": 212,
-     "w": 1182,
-     "size": 51,
+     "x": 315,
+     "y": 210,
+     "w": 1250,
+     "size": 50,
      "color": "#393973",
      "family": "sans",
      "weight": 700
@@ -801,33 +789,33 @@
     {
      "id": "s1",
      "type": "section",
-     "x": 354,
-     "y": 397,
-     "w": 703,
-     "size": 27,
+     "x": 315,
+     "y": 395,
+     "w": 705,
+     "size": 25,
      "color": "#1d1d1b",
      "family": "sans",
      "weight": 400,
-     "lineHeight": 1.55
+     "lineHeight": 1.5
     },
     {
      "id": "s2",
      "type": "section",
-     "x": 354,
-     "y": 632,
-     "w": 703,
-     "size": 27,
+     "x": 315,
+     "y": 630,
+     "w": 705,
+     "size": 25,
      "color": "#1d1d1b",
      "family": "sans",
      "weight": 400,
-     "lineHeight": 1.55
+     "lineHeight": 1.5
     },
     {
      "id": "caption",
-     "x": 1282,
-     "y": 921,
-     "w": 269,
-     "size": 24,
+     "x": 1260,
+     "y": 905,
+     "w": 300,
+     "size": 20,
      "color": "#333333",
      "family": "sans",
      "weight": 400,
@@ -838,19 +826,19 @@
     {
      "rect": {
       "x": 1115,
-      "y": 434,
-      "w": 604,
-      "h": 458
+      "y": 440,
+      "w": 603,
+      "h": 457
      },
-     "radius": 18
+     "radius": 20
     }
    ],
    "buttons": [
     {
      "type": "add",
      "rect": {
-      "x": 309,
-      "y": 885,
+      "x": 315,
+      "y": 905,
       "w": 118,
       "h": 39
      },
@@ -860,8 +848,8 @@
     {
      "type": "add",
      "rect": {
-      "x": 437,
-      "y": 885,
+      "x": 445,
+      "y": 905,
       "w": 118,
       "h": 39
      },
@@ -871,8 +859,8 @@
     {
      "type": "gmap",
      "rect": {
-      "x": 1701,
-      "y": 206,
+      "x": 1700,
+      "y": 205,
       "w": 75,
       "h": 75
      },
@@ -881,8 +869,8 @@
     {
      "type": "vr",
      "rect": {
-      "x": 1642,
-      "y": 831,
+      "x": 1640,
+      "y": 830,
       "w": 76,
       "h": 136
      },
@@ -898,14 +886,13 @@
    "available": true,
    "render": "image",
    "mapPin": true,
-   "image": "assets/c1/full/c1-read4.webp",
    "hasText": true,
    "textBlocks": [
     {
      "id": "badge",
-     "x": 304,
-     "y": 140,
-     "w": 148,
+     "x": 303,
+     "y": 1300,
+     "w": 150,
      "size": 34,
      "color": "#ffffff",
      "family": "sans",
@@ -913,10 +900,10 @@
     },
     {
      "id": "title",
-     "x": 314,
-     "y": 212,
-     "w": 1359,
-     "size": 51,
+     "x": 315,
+     "y": 210,
+     "w": 1400,
+     "size": 50,
      "color": "#393973",
      "family": "sans",
      "weight": 700
@@ -924,33 +911,33 @@
     {
      "id": "s1",
      "type": "section",
-     "x": 354,
-     "y": 397,
+     "x": 315,
+     "y": 395,
      "w": 703,
-     "size": 27,
+     "size": 25,
      "color": "#1d1d1b",
      "family": "sans",
      "weight": 400,
-     "lineHeight": 1.55
+     "lineHeight": 1.5
     },
     {
      "id": "s2",
      "type": "section",
-     "x": 354,
-     "y": 672,
+     "x": 315,
+     "y": 670,
      "w": 703,
-     "size": 27,
+     "size": 25,
      "color": "#1d1d1b",
      "family": "sans",
      "weight": 400,
-     "lineHeight": 1.55
+     "lineHeight": 1.5
     },
     {
      "id": "caption",
-     "x": 1228,
-     "y": 921,
-     "w": 378,
-     "size": 24,
+     "x": 1210,
+     "y": 905,
+     "w": 380,
+     "size": 20,
      "color": "#333333",
      "family": "sans",
      "weight": 400,
@@ -962,18 +949,18 @@
      "rect": {
       "x": 1115,
       "y": 434,
-      "w": 604,
-      "h": 458
+      "w": 603,
+      "h": 457
      },
-     "radius": 18
+     "radius": 20
     }
    ],
    "buttons": [
     {
      "type": "add",
      "rect": {
-      "x": 309,
-      "y": 925,
+      "x": 315,
+      "y": 905,
       "w": 118,
       "h": 39
      },
@@ -983,8 +970,8 @@
     {
      "type": "add",
      "rect": {
-      "x": 437,
-      "y": 925,
+      "x": 445,
+      "y": 905,
       "w": 118,
       "h": 39
      },
@@ -994,8 +981,8 @@
     {
      "type": "gmap",
      "rect": {
-      "x": 1701,
-      "y": 206,
+      "x": 1700,
+      "y": 205,
       "w": 75,
       "h": 75
      },
@@ -1004,8 +991,8 @@
     {
      "type": "vr",
      "rect": {
-      "x": 1642,
-      "y": 831,
+      "x": 1640,
+      "y": 830,
       "w": 76,
       "h": 136
      },
@@ -1021,13 +1008,12 @@
    "available": true,
    "render": "image",
    "mapPin": true,
-   "image": "assets/c1/full/c1-read5.webp",
    "hasText": true,
    "textBlocks": [
     {
      "id": "badge",
-     "x": 305,
-     "y": 140,
+     "x": 303,
+     "y": 130,
      "w": 147,
      "size": 34,
      "color": "#ffffff",
@@ -1036,9 +1022,9 @@
     },
     {
      "id": "title",
-     "x": 314,
-     "y": 212,
-     "w": 1182,
+     "x": 315,
+     "y": 210,
+     "w": 1250,
      "size": 51,
      "color": "#393973",
      "family": "sans",
@@ -1047,33 +1033,33 @@
     {
      "id": "s1",
      "type": "section",
-     "x": 1050,
-     "y": 397,
+     "x": 1000,
+     "y": 395,
      "w": 720,
-     "size": 27,
+     "size": 25,
      "color": "#1d1d1b",
      "family": "sans",
      "weight": 400,
-     "lineHeight": 1.55
+     "lineHeight": 1.5
     },
     {
      "id": "s2",
      "type": "section",
-     "x": 1050,
-     "y": 632,
+     "x": 1000,
+     "y": 630,
      "w": 720,
-     "size": 27,
+     "size": 25,
      "color": "#1d1d1b",
      "family": "sans",
      "weight": 400,
-     "lineHeight": 1.55
+     "lineHeight": 1.5
     },
     {
      "id": "caption",
-     "x": 432,
-     "y": 901,
-     "w": 383,
-     "size": 24,
+     "x": 430,
+     "y": 875,
+     "w": 400,
+     "size": 20,
      "color": "#333333",
      "family": "sans",
      "weight": 400,
@@ -1083,20 +1069,20 @@
    "photoSlots": [
     {
      "rect": {
-      "x": 322,
-      "y": 414,
-      "w": 604,
-      "h": 458
+      "x": 315,
+      "y": 410,
+      "w": 603,
+      "h": 457
      },
-     "radius": 18
+     "radius": 20
     }
    ],
    "buttons": [
     {
      "type": "add",
      "rect": {
-      "x": 1005,
-      "y": 885,
+      "x": 1000,
+      "y": 905,
       "w": 118,
       "h": 39
      },
@@ -1106,23 +1092,12 @@
     {
      "type": "add",
      "rect": {
-      "x": 1133,
-      "y": 885,
+      "x": 1130,
+      "y": 905,
       "w": 118,
       "h": 39
      },
      "key": "add2",
-     "place": "up"
-    },
-    {
-     "type": "add",
-     "rect": {
-      "x": 1260,
-      "y": 885,
-      "w": 118,
-      "h": 39
-     },
-     "key": "add3",
      "place": "up"
     },
     {
@@ -1138,8 +1113,8 @@
     {
      "type": "vr",
      "rect": {
-      "x": 322,
-      "y": 811,
+      "x": 315,
+      "y": 810,
       "w": 76,
       "h": 136
      },
@@ -1155,13 +1130,12 @@
    "available": true,
    "render": "image",
    "mapPin": true,
-   "image": "assets/c1/full/c1-read6.webp",
    "hasText": true,
    "textBlocks": [
     {
      "id": "badge",
-     "x": 305,
-     "y": 140,
+     "x": 303,
+     "y": 130,
      "w": 147,
      "size": 34,
      "color": "#ffffff",
@@ -1170,10 +1144,10 @@
     },
     {
      "id": "title",
-     "x": 314,
-     "y": 212,
-     "w": 1046,
-     "size": 51,
+     "x": 315,
+     "y": 210,
+     "w": 1200,
+     "size": 50,
      "color": "#393973",
      "family": "sans",
      "weight": 700
@@ -1181,33 +1155,33 @@
     {
      "id": "s1",
      "type": "section",
-     "x": 822,
-     "y": 430,
+     "x": 810,
+     "y": 425,
      "w": 943,
-     "size": 27,
+     "size": 25,
      "color": "#1d1d1b",
      "family": "sans",
      "weight": 400,
-     "lineHeight": 1.55
+     "lineHeight": 1.5
     },
     {
      "id": "s2",
      "type": "section",
-     "x": 822,
-     "y": 665,
-     "w": 943,
-     "size": 27,
+     "x": 810,
+     "y": 660,
+     "w": 955,
+     "size": 25,
      "color": "#1d1d1b",
      "family": "sans",
      "weight": 400,
-     "lineHeight": 1.55
+     "lineHeight": 1.5
     },
     {
      "id": "caption",
-     "x": 322,
-     "y": 901,
+     "x": 315,
+     "y": 880,
      "w": 424,
-     "size": 24,
+     "size": 20,
      "color": "#333333",
      "family": "sans",
      "weight": 400,
@@ -1217,20 +1191,20 @@
    "photoSlots": [
     {
      "rect": {
-      "x": 363,
-      "y": 414,
-      "w": 342,
-      "h": 458
+      "x": 350,
+      "y": 415,
+      "w": 341,
+      "h": 457
      },
-     "radius": 18
+     "radius": 20
     }
    ],
    "buttons": [
     {
      "type": "add",
      "rect": {
-      "x": 817,
-      "y": 886,
+      "x": 810,
+      "y": 905,
       "w": 118,
       "h": 39
      },
@@ -1240,8 +1214,8 @@
     {
      "type": "add",
      "rect": {
-      "x": 945,
-      "y": 886,
+      "x": 940,
+      "y": 905,
       "w": 118,
       "h": 39
      },
@@ -1251,8 +1225,8 @@
     {
      "type": "add",
      "rect": {
-      "x": 1073,
-      "y": 886,
+      "x": 1070,
+      "y": 905,
       "w": 118,
       "h": 39
      },
@@ -1262,8 +1236,8 @@
     {
      "type": "gmap",
      "rect": {
-      "x": 1701,
-      "y": 206,
+      "x": 1700,
+      "y": 205,
       "w": 75,
       "h": 75
      },
@@ -1279,13 +1253,12 @@
    "available": true,
    "render": "image",
    "mapPin": true,
-   "image": "assets/c1/full/c1-read7.webp",
    "hasText": true,
    "textBlocks": [
     {
      "id": "badge",
-     "x": 306,
-     "y": 140,
+     "x": 303,
+     "y": 130,
      "w": 145,
      "size": 34,
      "color": "#ffffff",
@@ -1294,10 +1267,10 @@
     },
     {
      "id": "title",
-     "x": 314,
-     "y": 212,
-     "w": 1182,
-     "size": 51,
+     "x": 315,
+     "y": 210,
+     "w": 1250,
+     "size": 50,
      "color": "#393973",
      "family": "sans",
      "weight": 700
@@ -1305,33 +1278,33 @@
     {
      "id": "s1",
      "type": "section",
-     "x": 354,
-     "y": 397,
-     "w": 703,
-     "size": 27,
+     "x": 315,
+     "y": 395,
+     "w": 720,
+     "size": 25,
      "color": "#1d1d1b",
      "family": "sans",
      "weight": 400,
-     "lineHeight": 1.55
+     "lineHeight": 1.5
     },
     {
      "id": "s2",
      "type": "section",
-     "x": 354,
+     "x": 315,
      "y": 665,
-     "w": 703,
-     "size": 27,
+     "w": 720,
+     "size": 25,
      "color": "#1d1d1b",
      "family": "sans",
      "weight": 400,
-     "lineHeight": 1.55
+     "lineHeight": 1.5
     },
     {
      "id": "caption",
-     "x": 1215,
-     "y": 921,
+     "x": 1200,
+     "y": 900,
      "w": 404,
-     "size": 24,
+     "size": 20,
      "color": "#333333",
      "family": "sans",
      "weight": 400,
@@ -1342,19 +1315,19 @@
     {
      "rect": {
       "x": 1115,
-      "y": 434,
-      "w": 604,
-      "h": 458
+      "y": 435,
+      "w": 603,
+      "h": 457
      },
-     "radius": 18
+     "radius": 20
     }
    ],
    "buttons": [
     {
      "type": "add",
      "rect": {
-      "x": 309,
-      "y": 918,
+      "x": 315,
+      "y": 905,
       "w": 118,
       "h": 39
      },
@@ -1364,8 +1337,8 @@
     {
      "type": "add",
      "rect": {
-      "x": 437,
-      "y": 918,
+      "x": 445,
+      "y": 905,
       "w": 118,
       "h": 39
      },
@@ -1375,8 +1348,8 @@
     {
      "type": "vr",
      "rect": {
-      "x": 1642,
-      "y": 831,
+      "x": 1640,
+      "y": 830,
       "w": 76,
       "h": 136
      },
@@ -1385,8 +1358,8 @@
     {
      "type": "gmap",
      "rect": {
-      "x": 1701,
-      "y": 206,
+      "x": 1700,
+      "y": 205,
       "w": 75,
       "h": 75
      },
@@ -1402,14 +1375,13 @@
    "available": true,
    "render": "image",
    "mapPin": true,
-   "image": "assets/c1/full/c1-intro3.webp",
    "hasText": true,
    "textBlocks": [
     {
      "id": "badge",
      "x": 345,
-     "y": 140,
-     "w": 59,
+     "y": 130,
+     "w": 80,
      "size": 34,
      "color": "#ffffff",
      "family": "sans",
@@ -1417,10 +1389,10 @@
     },
     {
      "id": "title",
-     "x": 314,
-     "y": 212,
-     "w": 1192,
-     "size": 51,
+     "x": 315,
+     "y": 210,
+     "w": 1250,
+     "size": 50,
      "color": "#393973",
      "family": "sans",
      "weight": 700
@@ -1428,45 +1400,45 @@
     {
      "id": "s1",
      "type": "section",
-     "x": 354,
-     "y": 387,
-     "w": 740,
-     "size": 27,
+     "x": 315,
+     "y": 380,
+     "w": 1000,
+     "size": 25,
      "color": "#1d1d1b",
      "family": "sans",
      "weight": 400,
-     "lineHeight": 1.55
+     "lineHeight": 1.5
     },
     {
      "id": "s2",
      "type": "section",
-     "x": 354,
-     "y": 579,
-     "w": 740,
-     "size": 27,
+     "x": 315,
+     "y": 575,
+     "w": 1000,
+     "size": 25,
      "color": "#1d1d1b",
      "family": "sans",
      "weight": 400,
-     "lineHeight": 1.55
+     "lineHeight": 1.5
     },
     {
      "id": "s3",
      "type": "section",
-     "x": 354,
-     "y": 804,
-     "w": 740,
-     "size": 27,
+     "x": 315,
+     "y": 800,
+     "w": 1000,
+     "size": 25,
      "color": "#1d1d1b",
      "family": "sans",
      "weight": 400,
-     "lineHeight": 1.55
+     "lineHeight": 1.5
     },
     {
      "id": "caption1",
-     "x": 1456,
-     "y": 646,
-     "w": 296,
-     "size": 24,
+     "x": 1468,
+     "y": 615,
+     "w": 330,
+     "size": 20,
      "color": "#333333",
      "family": "sans",
      "weight": 400,
@@ -1475,20 +1447,9 @@
     {
      "id": "caption2",
      "x": 1440,
-     "y": 937,
-     "w": 329,
-     "size": 24,
-     "color": "#333333",
-     "family": "sans",
-     "weight": 400,
-     "align": "center"
-    },
-    {
-     "id": "caption3",
-     "x": 1251,
-     "y": 937,
-     "w": 150,
-     "size": 24,
+     "y": 935,
+     "w": 330,
+     "size": 20,
      "color": "#333333",
      "family": "sans",
      "weight": 400,
@@ -1498,30 +1459,21 @@
    "photoSlots": [
     {
      "rect": {
-      "x": 1439,
-      "y": 396,
-      "w": 337,
-      "h": 245
+      "x": 1400,
+      "y": 390,
+      "w": 330,
+      "h": 218
      },
-     "radius": 14
+     "radius": 20
     },
     {
      "rect": {
-      "x": 1432,
-      "y": 688,
-      "w": 352,
-      "h": 237
+      "x": 1400,
+      "y": 700,
+      "w": 330,
+      "h": 218
      },
-     "radius": 14
-    },
-    {
-     "rect": {
-      "x": 1161,
-      "y": 706,
-      "w": 307,
-      "h": 223
-     },
-     "radius": 14
+     "radius": 20
     }
    ],
    "buttons": []
@@ -1534,13 +1486,12 @@
    "available": true,
    "render": "image",
    "mapPin": true,
-   "image": "assets/c1/full/c1-read8.webp",
    "hasText": true,
    "textBlocks": [
     {
      "id": "badge",
-     "x": 305,
-     "y": 140,
+     "x": 303,
+     "y": 130,
      "w": 147,
      "size": 34,
      "color": "#ffffff",
@@ -1549,10 +1500,10 @@
     },
     {
      "id": "title",
-     "x": 314,
-     "y": 212,
-     "w": 993,
-     "size": 51,
+     "x": 315,
+     "y": 210,
+     "w": 1200,
+     "size": 50,
      "color": "#393973",
      "family": "sans",
      "weight": 700
@@ -1560,33 +1511,33 @@
     {
      "id": "s1",
      "type": "section",
-     "x": 354,
-     "y": 397,
-     "w": 703,
-     "size": 27,
+     "x": 315,
+     "y": 390,
+     "w": 720,
+     "size": 25,
      "color": "#1d1d1b",
      "family": "sans",
      "weight": 400,
-     "lineHeight": 1.55
+     "lineHeight": 1.5
     },
     {
      "id": "s2",
      "type": "section",
-     "x": 354,
-     "y": 670,
-     "w": 703,
-     "size": 27,
+     "x": 315,
+     "y": 665,
+     "w": 720,
+     "size": 25,
      "color": "#1d1d1b",
      "family": "sans",
      "weight": 400,
-     "lineHeight": 1.55
+     "lineHeight": 1.5
     },
     {
      "id": "caption",
-     "x": 1220,
-     "y": 921,
-     "w": 392,
-     "size": 24,
+     "x": 1200,
+     "y": 900,
+     "w": 400,
+     "size": 20,
      "color": "#333333",
      "family": "sans",
      "weight": 400,
@@ -1598,18 +1549,18 @@
      "rect": {
       "x": 1115,
       "y": 434,
-      "w": 604,
-      "h": 458
+      "w": 603,
+      "h": 457
      },
-     "radius": 18
+     "radius": 20
     }
    ],
    "buttons": [
     {
      "type": "add",
      "rect": {
-      "x": 309,
-      "y": 923,
+      "x": 315,
+      "y": 905,
       "w": 118,
       "h": 39
      },
@@ -1619,8 +1570,8 @@
     {
      "type": "add",
      "rect": {
-      "x": 437,
-      "y": 923,
+      "x": 445,
+      "y": 905,
       "w": 118,
       "h": 39
      },
@@ -1630,8 +1581,8 @@
     {
      "type": "vr",
      "rect": {
-      "x": 1642,
-      "y": 831,
+      "x": 1640,
+      "y": 830,
       "w": 76,
       "h": 136
      },
@@ -1640,8 +1591,8 @@
     {
      "type": "gmap",
      "rect": {
-      "x": 1701,
-      "y": 206,
+      "x": 1700,
+      "y": 205,
       "w": 75,
       "h": 75
      },
@@ -1657,13 +1608,12 @@
    "available": true,
    "render": "image",
    "mapPin": true,
-   "image": "assets/c1/full/c1-read9.webp",
    "hasText": true,
    "textBlocks": [
     {
      "id": "badge",
-     "x": 305,
-     "y": 140,
+     "x": 303,
+     "y": 130,
      "w": 147,
      "size": 34,
      "color": "#ffffff",
@@ -1672,10 +1622,10 @@
     },
     {
      "id": "title",
-     "x": 314,
-     "y": 212,
-     "w": 1359,
-     "size": 51,
+     "x": 315,
+     "y": 210,
+     "w": 1400,
+     "size": 50,
      "color": "#393973",
      "family": "sans",
      "weight": 700
@@ -1683,33 +1633,33 @@
     {
      "id": "s1",
      "type": "section",
-     "x": 354,
-     "y": 397,
+     "x": 315,
+     "y": 395,
      "w": 740,
-     "size": 27,
+     "size": 25,
      "color": "#1d1d1b",
      "family": "sans",
      "weight": 400,
-     "lineHeight": 1.55
+     "lineHeight": 1.5
     },
     {
      "id": "s2",
      "type": "section",
-     "x": 355,
-     "y": 673,
+     "x": 315,
+     "y": 670,
      "w": 740,
-     "size": 27,
+     "size": 25,
      "color": "#1d1d1b",
      "family": "sans",
      "weight": 400,
-     "lineHeight": 1.55
+     "lineHeight": 1.5
     },
     {
      "id": "caption",
-     "x": 1225,
-     "y": 894,
+     "x": 1200,
+     "y": 900,
      "w": 383,
-     "size": 24,
+     "size": 20,
      "color": "#333333",
      "family": "sans",
      "weight": 400,
@@ -1719,20 +1669,20 @@
    "photoSlots": [
     {
      "rect": {
-      "x": 1148,
-      "y": 433,
-      "w": 570,
-      "h": 432
+      "x": 1115,
+      "y": 434,
+      "w": 603,
+      "h": 458
      },
-     "radius": 18
+     "radius": 20
     }
    ],
    "buttons": [
     {
      "type": "add",
      "rect": {
-      "x": 309,
-      "y": 925,
+      "x": 315,
+      "y": 905,
       "w": 118,
       "h": 39
      },
@@ -1742,8 +1692,8 @@
     {
      "type": "add",
      "rect": {
-      "x": 437,
-      "y": 925,
+      "x": 445,
+      "y": 905,
       "w": 118,
       "h": 39
      },
@@ -1751,21 +1701,10 @@
      "place": "up"
     },
     {
-     "type": "add",
-     "rect": {
-      "x": 565,
-      "y": 925,
-      "w": 118,
-      "h": 39
-     },
-     "key": "add3",
-     "place": "up"
-    },
-    {
      "type": "vr",
      "rect": {
-      "x": 1641,
-      "y": 804,
+      "x": 1640,
+      "y": 805,
       "w": 76,
       "h": 136
      },
@@ -1774,8 +1713,8 @@
     {
      "type": "gmap",
      "rect": {
-      "x": 1701,
-      "y": 206,
+      "x": 1700,
+      "y": 205,
       "w": 75,
       "h": 75
      },
@@ -1791,14 +1730,13 @@
    "available": true,
    "render": "image",
    "mapPin": true,
-   "image": "assets/c1/full/c1-read10.webp",
    "hasText": true,
    "textBlocks": [
     {
      "id": "badge",
-     "x": 297,
-     "y": 140,
-     "w": 163,
+     "x": 303,
+     "y": 130,
+     "w": 170,
      "size": 34,
      "color": "#ffffff",
      "family": "sans",
@@ -1806,10 +1744,10 @@
     },
     {
      "id": "title",
-     "x": 314,
-     "y": 212,
-     "w": 1011,
-     "size": 51,
+     "x": 315,
+     "y": 210,
+     "w": 1200,
+     "size": 50,
      "color": "#393973",
      "family": "sans",
      "weight": 700
@@ -1817,33 +1755,33 @@
     {
      "id": "s1",
      "type": "section",
-     "x": 1056,
-     "y": 408,
-     "w": 712,
-     "size": 27,
+     "x": 1000,
+     "y": 400,
+     "w": 720,
+     "size": 25,
      "color": "#1d1d1b",
      "family": "sans",
      "weight": 400,
-     "lineHeight": 1.55
+     "lineHeight": 1.5
     },
     {
      "id": "s2",
      "type": "section",
-     "x": 1056,
-     "y": 643,
-     "w": 712,
-     "size": 27,
+     "x": 1000,
+     "y": 640,
+     "w": 720,
+     "size": 25,
      "color": "#1d1d1b",
      "family": "sans",
      "weight": 400,
-     "lineHeight": 1.55
+     "lineHeight": 1.5
     },
     {
      "id": "caption",
      "x": 421,
-     "y": 908,
+     "y": 875,
      "w": 391,
-     "size": 24,
+     "size": 20,
      "color": "#333333",
      "family": "sans",
      "weight": 400,
@@ -1853,20 +1791,20 @@
    "photoSlots": [
     {
      "rect": {
-      "x": 314,
-      "y": 416,
-      "w": 604,
-      "h": 458
+      "x": 315,
+      "y": 410,
+      "w": 603,
+      "h": 457
      },
-     "radius": 18
+     "radius": 20
     }
    ],
    "buttons": [
     {
      "type": "ar",
      "rect": {
-      "x": 314,
-      "y": 816,
+      "x": 315,
+      "y": 815,
       "w": 76,
       "h": 136
      },
@@ -1876,8 +1814,8 @@
     {
      "type": "add",
      "rect": {
-      "x": 1011,
-      "y": 926,
+      "x": 1000,
+      "y": 905,
       "w": 118,
       "h": 39
      },
@@ -1887,8 +1825,8 @@
     {
      "type": "add",
      "rect": {
-      "x": 1139,
-      "y": 926,
+      "x": 1130,
+      "y": 905,
       "w": 118,
       "h": 39
      },
@@ -1898,8 +1836,8 @@
     {
      "type": "gmap",
      "rect": {
-      "x": 1701,
-      "y": 206,
+      "x": 1700,
+      "y": 205,
       "w": 75,
       "h": 75
      },
