@@ -36,14 +36,14 @@
     "add3": "추가자료3"
   },
   "tips": {
-    "add1": "추가자료1 (링크)",
-    "add2": "추가자료2 (링크)",
+    "add1": "윤봉길 의사",
+    "add2": "영상한국사 - 윤봉길, 일왕 생일 축하연에서 폭탄을 던지다",
     "add3": "윤봉길의사기념관(충의사)"
   },
   "links": {
-    "add1": "https://edu.mpva.go.kr",
-    "add2": "https://edu.mpva.go.kr",
-    "add3": "https://edu.mpva.go.kr",
-    "gmap": "https://maps.google.com"
+    "add1": "https://culture.mpva.go.kr/pvData/intg/prsn/10418",
+    "add2": "https://youtu.be/0NAE4xmbmM0",
+    "add3": "https://edu.mpva.go.kr/data/book/mpvael4.do#page=33",
+    "gmap": "https://maps.app.goo.gl/5cgovYsWWuAvjzQh6"
   }
 }
