@@ -6,10 +6,9 @@
  },
  "chrome": {
   "logo": {
-   "x": 40,
-   "y": 62,
-   "w": 72,
-   "h": 86,
+   "x": 76,
+   "y": 156,
+   "r": 44,
    "action": "link",
    "url": "https://www.mpva.go.kr",
    "label": "국가보훈부"
@@ -101,7 +100,7 @@
    "course": null,
    "available": true,
    "render": "editable",
-   "bg": "assets/01_title/png/cover.png",
+   "bg": "assets/01_title/png/cover.webp",
    "mapPin": false
   },
   {
@@ -111,7 +110,7 @@
    "course": null,
    "available": true,
    "render": "editable",
-   "bg": "assets/01_title/bg/toc-grid.png",
+   "bg": "assets/01_title/bg/toc-grid.webp",
    "mapPin": false
   },
   {
@@ -122,8 +121,7 @@
    "available": true,
    "render": "image",
    "mapPin": false,
-   "image": "assets/c1/full/c1-map.png",
-   "bg": "assets/c1/bg/c1-map.png",
+   "image": "assets/c1/full/c1-map.webp",
    "mapHotspots": [
     {
      "x": 1549,
@@ -131,7 +129,7 @@
      "r": 34,
      "label": "상하이",
      "link": "c1-read1",
-     "card": "assets/c1/map/card-shanghai.png"
+     "card": "assets/c1/map/card-shanghai.webp"
     },
     {
      "x": 1496,
@@ -139,7 +137,7 @@
      "r": 34,
      "label": "자싱",
      "link": "c1-read3",
-     "card": "assets/c1/map/card-jiaxing.png"
+     "card": "assets/c1/map/card-jiaxing.webp"
     },
     {
      "x": 1440,
@@ -147,7 +145,7 @@
      "r": 34,
      "label": "항저우",
      "link": "c1-read5",
-     "card": "assets/c1/map/card-hangzhou.png"
+     "card": "assets/c1/map/card-hangzhou.webp"
     },
     {
      "x": 1064,
@@ -155,7 +153,7 @@
      "r": 34,
      "label": "창사",
      "link": "c1-read6",
-     "card": "assets/c1/map/card-changsha.png"
+     "card": "assets/c1/map/card-changsha.webp"
     },
     {
      "x": 877,
@@ -163,7 +161,7 @@
      "r": 34,
      "label": "류저우",
      "link": "c1-read7",
-     "card": "assets/c1/map/card-liuzhou.png"
+     "card": "assets/c1/map/card-liuzhou.webp"
     },
     {
      "x": 684,
@@ -171,7 +169,7 @@
      "r": 34,
      "label": "충칭",
      "link": "c1-read8",
-     "card": "assets/c1/map/card-chongqing.png"
+     "card": "assets/c1/map/card-chongqing.webp"
     },
     {
      "x": 893,
@@ -179,7 +177,7 @@
      "r": 34,
      "label": "시안",
      "link": "c1-read10",
-     "card": "assets/c1/map/card-xian.png"
+     "card": "assets/c1/map/card-xian.webp"
     }
    ],
    "mapCardRect": {
@@ -197,8 +195,7 @@
    "available": true,
    "render": "image",
    "mapPin": true,
-   "image": "assets/c1/full/c1-prestudy.png",
-   "bg": "assets/c1/bg/c1-prestudy.png",
+   "image": "assets/c1/full/c1-prestudy.webp",
    "buttons": [
     {
      "type": "ar",
@@ -292,8 +289,7 @@
    "available": true,
    "render": "image",
    "mapPin": true,
-   "image": "assets/c1/full/c1-intro1.png",
-   "bg": "assets/c1/bg/c1-intro1.png",
+   "image": "assets/c1/full/c1-intro1.webp",
    "hasText": true,
    "textBlocks": [
     {
@@ -404,8 +400,7 @@
    "available": true,
    "render": "image",
    "mapPin": true,
-   "image": "assets/c1/full/c1-read1.png",
-   "bg": "assets/c1/bg/c1-read1.png",
+   "image": "assets/c1/full/c1-read1.webp",
    "hasText": true,
    "textBlocks": [
     {
@@ -529,8 +524,7 @@
    "available": true,
    "render": "image",
    "mapPin": true,
-   "image": "assets/c1/full/c1-read2.png",
-   "bg": "assets/c1/bg/c1-read2.png",
+   "image": "assets/c1/full/c1-read2.webp",
    "hasText": true,
    "textBlocks": [
     {
@@ -654,8 +648,7 @@
    "available": true,
    "render": "image",
    "mapPin": true,
-   "image": "assets/c1/full/c1-intro2.png",
-   "bg": "assets/c1/bg/c1-intro2.png",
+   "image": "assets/c1/full/c1-intro2.webp",
    "hasText": true,
    "textBlocks": [
     {
@@ -787,8 +780,7 @@
    "available": true,
    "render": "image",
    "mapPin": true,
-   "image": "assets/c1/full/c1-read3.png",
-   "bg": "assets/c1/bg/c1-read3.png",
+   "image": "assets/c1/full/c1-read3.webp",
    "hasText": true,
    "textBlocks": [
     {
@@ -911,8 +903,7 @@
    "available": true,
    "render": "image",
    "mapPin": true,
-   "image": "assets/c1/full/c1-read4.png",
-   "bg": "assets/c1/bg/c1-read4.png",
+   "image": "assets/c1/full/c1-read4.webp",
    "hasText": true,
    "textBlocks": [
     {
@@ -1035,8 +1026,7 @@
    "available": true,
    "render": "image",
    "mapPin": true,
-   "image": "assets/c1/full/c1-read5.png",
-   "bg": "assets/c1/bg/c1-read5.png",
+   "image": "assets/c1/full/c1-read5.webp",
    "hasText": true,
    "textBlocks": [
     {
@@ -1170,8 +1160,7 @@
    "available": true,
    "render": "image",
    "mapPin": true,
-   "image": "assets/c1/full/c1-read6.png",
-   "bg": "assets/c1/bg/c1-read6.png",
+   "image": "assets/c1/full/c1-read6.webp",
    "hasText": true,
    "textBlocks": [
     {
@@ -1295,8 +1284,7 @@
    "available": true,
    "render": "image",
    "mapPin": true,
-   "image": "assets/c1/full/c1-read7.png",
-   "bg": "assets/c1/bg/c1-read7.png",
+   "image": "assets/c1/full/c1-read7.webp",
    "hasText": true,
    "textBlocks": [
     {
@@ -1419,8 +1407,7 @@
    "available": true,
    "render": "image",
    "mapPin": true,
-   "image": "assets/c1/full/c1-intro3.png",
-   "bg": "assets/c1/bg/c1-intro3.png",
+   "image": "assets/c1/full/c1-intro3.webp",
    "hasText": true,
    "textBlocks": [
     {
@@ -1552,8 +1539,7 @@
    "available": true,
    "render": "image",
    "mapPin": true,
-   "image": "assets/c1/full/c1-read8.png",
-   "bg": "assets/c1/bg/c1-read8.png",
+   "image": "assets/c1/full/c1-read8.webp",
    "hasText": true,
    "textBlocks": [
     {
@@ -1676,8 +1662,7 @@
    "available": true,
    "render": "image",
    "mapPin": true,
-   "image": "assets/c1/full/c1-read9.png",
-   "bg": "assets/c1/bg/c1-read9.png",
+   "image": "assets/c1/full/c1-read9.webp",
    "hasText": true,
    "textBlocks": [
     {
@@ -1811,8 +1796,7 @@
    "available": true,
    "render": "image",
    "mapPin": true,
-   "image": "assets/c1/full/c1-read10.png",
-   "bg": "assets/c1/bg/c1-read10.png",
+   "image": "assets/c1/full/c1-read10.webp",
    "hasText": true,
    "textBlocks": [
     {
@@ -1936,8 +1920,8 @@
    "available": true,
    "mapPin": true,
    "hasText": true,
-   "image": "assets/c1/full/c1-quiz1.png",
-   "answerImage": "assets/c1/full/c1-quiz1-a.png",
+   "image": "assets/c1/full/c1-quiz1.webp",
+   "answerImage": "assets/c1/full/c1-quiz1-a.webp",
    "photoSlot": {
     "rect": {
      "x": 400,
@@ -1991,7 +1975,8 @@
     "color": "#ffffff",
     "weight": 600,
     "lineHeight": 1.3
-   }
+   },
+   "badgePanel": "assets/c1/quiz/q1-panel.webp"
   },
   {
    "id": "c1-quiz2",
@@ -2000,9 +1985,9 @@
    "course": 1,
    "available": true,
    "mapPin": true,
-   "image": "assets/c1/full/c1-quiz2.png",
+   "image": "assets/c1/full/c1-quiz2.webp",
    "hasText": true,
-   "answerImage": "assets/c1/full/c1-quiz2-a.png",
+   "answerImage": "assets/c1/full/c1-quiz2-a.webp",
    "qtext": {
     "x": 292,
     "y": 232,
@@ -2056,7 +2041,8 @@
      "weight": 400,
      "lineHeight": 1.5
     }
-   }
+   },
+   "badgePanel": "assets/c1/quiz/q2-panel.webp"
   },
   {
    "id": "c1-quiz3",
@@ -2065,9 +2051,9 @@
    "course": 1,
    "available": true,
    "mapPin": true,
-   "image": "assets/c1/full/c1-quiz3.png",
+   "image": "assets/c1/full/c1-quiz3.webp",
    "hasText": true,
-   "answerImage": "assets/c1/full/c1-quiz3-a.png",
+   "answerImage": "assets/c1/full/c1-quiz3-a.webp",
    "qtext": {
     "x": 292,
     "y": 232,
@@ -2121,7 +2107,8 @@
      "weight": 400,
      "lineHeight": 1.5
     }
-   }
+   },
+   "badgePanel": "assets/c1/quiz/q3-panel.webp"
   },
   {
    "id": "c2-map",
@@ -2645,7 +2632,7 @@
    "render": "image",
    "common": true,
    "mapPin": false,
-   "image": "assets/05_note/note-skeleton.png",
+   "image": "assets/05_note/note-skeleton.webp",
    "note": {
     "editor": {
      "x": 287,
@@ -2659,7 +2646,9 @@
      "w": 540,
      "h": 612
     },
-    "pdfLabel": "PDF 출력"
+    "pdfLabel": "PDF 출력",
+    "header": "탐방 후기 작성하기",
+    "scrapLabel": "페이지 스크랩 모음"
    }
   }
  ]

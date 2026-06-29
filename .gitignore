@@ -1,0 +1,9 @@
+# 보관용(웹에 올릴 필요 없음)
+_archive_unused/
+# OS/임시
+.DS_Store
+Thumbs.db
+desktop.ini
+*.tmp
+_note_*.png
+_quiz*.png

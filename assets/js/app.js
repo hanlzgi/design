@@ -20,7 +20,20 @@
   const AR_SVG='<svg class="ar-ico" viewBox="0 0 40 40" fill="none"><rect x="4" y="11" width="30" height="25" rx="7" stroke="#fff" stroke-width="3.2"/><path d="M11 11 V9 a4 4 0 0 1 4 -4 h3" stroke="#fff" stroke-width="3.2" stroke-linecap="round"/><polygon points="15,17 15,30 28,23.5" fill="#fff"/></svg>';
 
   const HOME_SVG='<svg viewBox="0 0 40 40" fill="none"><path d="M20 7 L34 19 H30 V33 H24 V24 H16 V33 H10 V19 H6 Z" fill="#fff"/></svg>';
-  const el=(t,c,css)=>{const n=document.createElement(t);if(c)n.className=c;if(css)Object.assign(n.style,css);return n;};
+
+  const ICONS={
+    home:HOME_SVG,
+    share:'<svg viewBox="0 0 40 40" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M29 22v7a2 2 0 0 1-2 2H11a2 2 0 0 1-2-2V13a2 2 0 0 1 2-2h7"/><path d="M24 9h7v7"/><path d="M31 9 19 21"/></svg>',
+    scrap:'<svg viewBox="0 0 40 40" fill="#fff"><path d="M13 7h14a2 2 0 0 1 2 2v25l-9-6.6L11 34V9a2 2 0 0 1 2-2z"/></svg>',
+    note:'<svg viewBox="0 0 40 40" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M27 8l5 5-16 16-6 2 2-6z"/><path d="M11 33h19"/></svg>',
+    search:'<svg viewBox="0 0 40 40" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"><circle cx="18" cy="18" r="9"/><line x1="25" y1="25" x2="32" y2="32"/></svg>',
+    pdf:'<svg viewBox="0 0 40 40" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 8v15"/><path d="M13 17l7 7 7-7"/><path d="M9 29v3a1 1 0 0 0 1 1h20a1 1 0 0 0 1-1v-3"/></svg>',
+    fullscreen:'<svg viewBox="0 0 40 40" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M9 15v-5a1 1 0 0 1 1-1h5"/><path d="M25 9h5a1 1 0 0 1 1 1v5"/><path d="M31 25v5a1 1 0 0 1-1 1h-5"/><path d="M15 31h-5a1 1 0 0 1-1-1v-5"/></svg>',
+    back:'<svg viewBox="0 0 40 40" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12l-8 8 8 8"/><path d="M14 20h13"/></svg>',
+    portal:'<svg viewBox="0 0 40 40" fill="none" stroke="#fff" stroke-width="2.5"><circle cx="20" cy="20" r="12"/><ellipse cx="20" cy="20" rx="5" ry="12"/><line x1="8" y1="20" x2="32" y2="20"/><line x1="11" y1="13" x2="29" y2="13"/><line x1="11" y1="27" x2="29" y2="27"/></svg>',
+    map:'<svg viewBox="0 0 40 40" fill="none" stroke="#fff" stroke-width="2.8" stroke-linejoin="round"><path d="M20 9c4.4 0 8 3.6 8 8 0 5.5-8 14-8 14s-8-8.5-8-14c0-4.4 3.6-8 8-8z"/><circle cx="20" cy="17" r="3.2"/></svg>',
+    settings:'<svg viewBox="0 0 40 40" fill="none" stroke="#fff" stroke-width="2.5" stroke-linejoin="round"><circle cx="20" cy="20" r="4.5"/><path d="M20 7l1.6 3.4 3.7-.6 1 3.6 3.4 1.6-.6 3.7L33 20l-2.6 2.8.6 3.7-3.4 1.6-1 3.6-3.7-.6L20 33l-1.6-3.4-3.7.6-1-3.6-3.4-1.6.6-3.7L7 20l2.6-2.8-.6-3.7 3.4-1.6 1-3.6 3.7.6z"/></svg>'
+  };  const el=(t,c,css)=>{const n=document.createElement(t);if(c)n.className=c;if(css)Object.assign(n.style,css);return n;};
   const px=v=>v+'px';
   const V='?v='+Date.now();
   const pad3=n=>String(n).padStart(3,'0');
@@ -43,7 +56,8 @@
     const b=document.createElement('button');
     b.className='hot '+cls; b.dataset.x=cfg.x; b.dataset.y=cfg.y; b.dataset.action=cfg.action;
     if(cfg.r) b.dataset.r=cfg.r;
-    b.innerHTML=`<span class="glyph">${GLYPH[cfg.action]||''}</span><span class="tip">${cfg.label||''}</span>`;
+    const _inner = cfg.action==='logo' ? '<img class="logo-img" src="assets/logo.png'+V+'" alt="국가보훈부">' : (ICONS[cfg.action]||GLYPH[cfg.action]||'');
+    b.innerHTML=`<span class="glyph">${_inner}</span><span class="tip">${cfg.label||''}</span>`;
     b.addEventListener('click', ()=>handle(cfg));
     return b;
   }
@@ -86,13 +100,13 @@
     if(t.w)n.style.width=px(t.w); n.textContent=t.text; return n;
   }
   function renderCard(c){
-    const f=document.createDocumentFragment();
-    f.appendChild(renderText({text:c.category,x:c.badge_x,y:c.badge_y,size:18,font:'sans-sb',color:'#fff'}));
-    f.appendChild(renderText({text:c.region,x:c.region_x,y:c.region_y,size:20,font:'sans-r',color:'#000'}));
-    f.appendChild(renderText({text:c.title,x:c.title_x,y:c.title_y,size:44,font:'sans-sb',color:'#000',w:c.title_w}));
-    const hot=el('div','card-hotspot',{left:px(c.title_x-30),top:px(c.badge_y-20),width:px((c.title_w||240)+60),height:px(560)});
+    const hot=el('div','card-hotspot toc-card',{left:px(c.x),top:px(c.y),width:px(c.w),height:px(c.h)});
+    const img=el('img','toc-card-img'); img.src=c.img+V; img.draggable=false; hot.appendChild(img);
+    hot.appendChild(renderText({text:c.category,x:c.badge_x-c.x,y:c.badge_y-c.y,size:18,font:'sans-sb',color:'#fff'}));
+    hot.appendChild(renderText({text:c.region,x:c.region_x-c.x,y:c.region_y-c.y,size:20,font:'sans-r',color:'#000'}));
+    hot.appendChild(renderText({text:c.title,x:c.title_x-c.x,y:c.title_y-c.y,size:44,font:'sans-sb',color:'#000',w:c.title_w}));
     hot.addEventListener('click',()=>{ toast('코스 선택: '+c.title); goId('c1-map'); });
-    f.appendChild(hot); return f;
+    return hot;
   }
   function renderEditable(page, root){
     const cp=CONTENT.pages.find(x=>x.id===CONTENT_KEY[page.id]);
@@ -149,6 +163,7 @@
         color:b.color||'#1d1d1b',fontFamily:fam[b.family]||'var(--font-sans)',fontWeight:String(b.weight||400),
         textAlign:b.align||'left',lineHeight:String(b.lineHeight||1.5)});
       if(b.type==='section' && val && typeof val==='object'){
+        n.appendChild(el('div','sec-bullet'));
         if(val.label){ const l=el('div','sec-label'); l.textContent=val.label; n.appendChild(l); }
         if(val.body){ const bd=el('div','sec-body'); appendAnnotated(bd, val.body, anns, usedAnnot); n.appendChild(bd); }
       }
@@ -225,10 +240,13 @@
       root.appendChild(im);
     }
     // 정답 팝업
-    const ans=el('div','quiz-ans'); const aimg=el('img','quiz-ans-img'); aimg.src=page.answerImage+V; ans.appendChild(aimg);
-    const al=page.answerLayout||{};
-    function atext(cfg,txt){ if(!cfg||txt==null)return; const n=el('div','quiz-atext',{left:px(cfg.x),top:px(cfg.y),width:px(cfg.w),fontSize:px(cfg.size),color:cfg.color||'#1d1d1b',fontWeight:String(cfg.weight||400),textAlign:cfg.align||'left',lineHeight:String(cfg.lineHeight||1.4)}); n.textContent=txt; ans.appendChild(n); }
-    atext(al.question, q.question); atext(al.label, q.answerLabel); atext(al.explanation, q.explanation);
+    const ans=el('div','quiz-ans');
+    const acard=el('div','quiz-ans-card'); acard.addEventListener('click',e=>e.stopPropagation());
+    const ahead=el('div','quiz-ans-head'); ahead.textContent=q.answerLabel||'정답'; acard.appendChild(ahead);
+    const abody=el('div','quiz-ans-body');
+    if(q.question){ const aq=el('div','quiz-ans-q'); aq.textContent=q.question; abody.appendChild(aq); }
+    const aex=el('div','quiz-ans-ex'); aex.textContent=q.explanation||''; abody.appendChild(aex);
+    acard.appendChild(abody); ans.appendChild(acard);
     ans.addEventListener('click',()=>ans.classList.remove('show')); root.appendChild(ans);
     // 오답
     const wrong=el('div','quiz-wrong'); const wm=el('div','quiz-wrong-msg'); wm.textContent=q.wrongMsg||'다시 풀어보세요!'; wrong.appendChild(wm);
@@ -415,14 +433,28 @@
   }
 
 
+  function renderFrame(page, root){
+    root.classList.add('framed');
+    root.appendChild(el('div','frm-panel'));
+    root.appendChild(el('div','frm-card frm-titlebar'));
+    root.appendChild(el('div','frm-card frm-body'));
+    const bd=el('div','frm-badge'); bd.appendChild(el('span','frm-flag')); root.appendChild(bd);
+    if(page.type==='prestudy'){ const ms=el('div','frm-search'); ms.innerHTML='<svg viewBox="0 0 40 40" fill="none" stroke="#575756" stroke-width="3.4" stroke-linecap="round"><circle cx="17" cy="17" r="10"/><line x1="25" y1="25" x2="33" y2="33"/></svg>'; root.appendChild(ms); }
+  }
+
   function render(){
     stage.innerHTML='';
     const page=curPage();
     const content=textCache[pad3(idx+1)];
     const root=el('div','page');
     if(page.render==='editable') renderEditable(page,root);
-    else if(page.type==='quiz'){ const im=el('img','full'); im.src=page.image+V; root.appendChild(im); renderQuiz(page,root,content); }
+    else if(page.type==='quiz'){
+      root.classList.add('framed'); root.appendChild(el('div','frm-panel'));
+      if(page.badgePanel){ const bp=el('img','quiz-panel',{left:px(248),top:px(46)}); bp.src=page.badgePanel+V; root.appendChild(bp); }
+      renderQuiz(page,root,content);
+    }
     else if(page.type==='note'){ renderNote(page,root); }
+    else if(page.type==='reading'||page.type==='intro'||page.type==='prestudy'){ renderFrame(page,root); }
     else if(page.render==='image' && page.image){
       const im=el('img','full'); im.src=page.image+V; root.appendChild(im);
       if(page.imageAnswer){
@@ -436,6 +468,7 @@
     if(page.photoSlots||page.buttons) addPageInteractions(page, root, content);
     stage.appendChild(root);
     chrome.classList.toggle('show-glyphs', page.render==='placeholder');
+    chrome.classList.toggle('on-frame', page.type==='reading'||page.type==='intro'||page.type==='prestudy'||page.type==='note'||page.type==='map'||page.type==='quiz'||page.type==='toc');
     const pin=chrome.querySelector('.hot[data-action="map"]');
     if(pin){ pin.disabled = !(page.mapPin && page.course); }
     const _pg=document.querySelector('.pager'); if(_pg) _pg.style.display=(page.type==='note')?'none':'';
