@@ -22,20 +22,17 @@
   ],
   "labels": {
     "add1": "추가자료1",
-    "add2": "추가자료2",
-    "add3": "추가자료3"
+    "add2": "추가자료2"
   },
   "tips": {
-    "add1": "추가자료1 (링크)",
-    "add2": "추가자료2 (링크)",
-    "add3": "광복 80주년, 항저우의 광복",
-    "vr": "(VR) 현장 360° 둘러보기"
+    "add1": "중국 항저우 대한민국 임시정부 방문기",
+    "add2": "광복 80주년, 항저우의 광복",
+    "vr": "[360도 VR] 독립기념관 해설사와 떠나는 대한민국임시정부 투어"
   },
   "links": {
-    "add1": "https://edu.mpva.go.kr",
-    "add2": "https://edu.mpva.go.kr",
-    "add3": "https://edu.mpva.go.kr",
-    "gmap": "https://maps.google.com",
-    "vr": "https://example.com/vr"
+    "add1": "https://youtu.be/EfkHa4w_70Q",
+    "add2": "https://youtu.be/cucrLHNfDnk",
+    "gmap": "https://maps.app.goo.gl/KUgxu4hcGn5iK39MA",
+    "vr": "https://youtu.be/jI3f9Fi9E24"
   }
 }
