@@ -19,14 +19,14 @@
     "add3": "추가자료3"
   },
   "tips": {
-    "add1": "추가자료1 (링크)",
-    "add2": "추가자료2 (링크)",
-    "add3": "대한민국 임시정부 수립 기념일"
+    "add1": "대한민국 임시정부 수립 이야기 | 제103주년 대한민국임시정부수립 기념식",
+    "add2": "대한민국 임시정부 수립 기념일",
+    "add3": "가상공간에서 만나는 대한민국 임시 정부"
   },
   "links": {
-    "add1": "https://edu.mpva.go.kr",
-    "add2": "https://edu.mpva.go.kr",
-    "add3": "https://edu.mpva.go.kr",
-    "gmap": "https://maps.google.com"
+    "add1": "https://youtu.be/9F-v8GgOTPA",
+    "add2": "https://edu.mpva.go.kr/data/book/mpvael3.do#page=8",
+    "add3": "https://meta.imjung0411.com/meta/",
+    "gmap": "https://maps.app.goo.gl/AhgZKjgsjRoVicPVA"
   }
 }
