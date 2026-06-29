@@ -109,8 +109,7 @@
    "type": "toc",
    "course": null,
    "available": true,
-   "render": "editable",
-   "bg": "assets/01_title/bg/toc-grid.webp",
+   "render": "image",
    "mapPin": false
   },
   {
@@ -294,8 +293,8 @@
      "id": "badge",
      "x": 345,
      "y": 130,
-     "w": 80,
-     "size": 34,
+     "w": 130,
+     "size": 32,
      "color": "#ffffff",
      "family": "sans",
      "weight": 700
@@ -402,10 +401,10 @@
    "textBlocks": [
     {
      "id": "badge",
-     "x": 315,
+     "x": 303,
      "y": 130,
-     "w": 141,
-     "size": 34,
+     "w": 170,
+     "size": 32,
      "color": "#ffffff",
      "family": "sans",
      "weight": 700
@@ -525,10 +524,10 @@
    "textBlocks": [
     {
      "id": "badge",
-     "x": 315,
+     "x": 303,
      "y": 130,
-     "w": 146,
-     "size": 34,
+     "w": 170,
+     "size": 32,
      "color": "#ffffff",
      "family": "sans",
      "weight": 700
@@ -650,8 +649,8 @@
      "id": "badge",
      "x": 345,
      "y": 130,
-     "w": 80,
-     "size": 34,
+     "w": 130,
+     "size": 32,
      "color": "#ffffff",
      "family": "sans",
      "weight": 700
@@ -768,10 +767,10 @@
    "textBlocks": [
     {
      "id": "badge",
-     "x": 315,
+     "x": 303,
      "y": 130,
-     "w": 147,
-     "size": 34,
+     "w": 170,
+     "size": 32,
      "color": "#ffffff",
      "family": "sans",
      "weight": 700
@@ -891,9 +890,9 @@
     {
      "id": "badge",
      "x": 303,
-     "y": 1300,
-     "w": 150,
-     "size": 34,
+     "y": 130,
+     "w": 170,
+     "size": 32,
      "color": "#ffffff",
      "family": "sans",
      "weight": 700
@@ -924,7 +923,7 @@
      "id": "s2",
      "type": "section",
      "x": 315,
-     "y": 670,
+     "y": 660,
      "w": 703,
      "size": 25,
      "color": "#1d1d1b",
@@ -1014,8 +1013,8 @@
      "id": "badge",
      "x": 303,
      "y": 130,
-     "w": 147,
-     "size": 34,
+     "w": 170,
+     "size": 32,
      "color": "#ffffff",
      "family": "sans",
      "weight": 700
@@ -1136,8 +1135,8 @@
      "id": "badge",
      "x": 303,
      "y": 130,
-     "w": 147,
-     "size": 34,
+     "w": 170,
+     "size": 32,
      "color": "#ffffff",
      "family": "sans",
      "weight": 700
@@ -1259,8 +1258,8 @@
      "id": "badge",
      "x": 303,
      "y": 130,
-     "w": 145,
-     "size": 34,
+     "w": 170,
+     "size": 32,
      "color": "#ffffff",
      "family": "sans",
      "weight": 700
@@ -1381,8 +1380,8 @@
      "id": "badge",
      "x": 345,
      "y": 130,
-     "w": 80,
-     "size": 34,
+     "w": 130,
+     "size": 32,
      "color": "#ffffff",
      "family": "sans",
      "weight": 700
@@ -1492,8 +1491,8 @@
      "id": "badge",
      "x": 303,
      "y": 130,
-     "w": 147,
-     "size": 34,
+     "w": 170,
+     "size": 32,
      "color": "#ffffff",
      "family": "sans",
      "weight": 700
@@ -1614,8 +1613,8 @@
      "id": "badge",
      "x": 303,
      "y": 130,
-     "w": 147,
-     "size": 34,
+     "w": 170,
+     "size": 32,
      "color": "#ffffff",
      "family": "sans",
      "weight": 700
@@ -1737,7 +1736,7 @@
      "x": 303,
      "y": 130,
      "w": 170,
-     "size": 34,
+     "size": 32,
      "color": "#ffffff",
      "family": "sans",
      "weight": 700
