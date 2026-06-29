@@ -30,14 +30,14 @@
     "add2": "추가자료2"
   },
   "tips": {
-    "add1": "추가자료1 (링크)",
+    "add1": "영상한국사 - 대한민국임시정부, 한국광복군을 창설하고 국내진공작전을 계획하다",
     "add2": "[위대한 호국보훈유산] 2편 마지막 광복군의 길",
-    "ar": "(AR) 현장 증강현실 보기"
+    "ar": "(AR) 한국광복군  대원의 긴급임무"
   },
   "links": {
-    "add1": "https://edu.mpva.go.kr",
-    "add2": "https://edu.mpva.go.kr",
-    "gmap": "https://maps.google.com",
-    "ar": "https://example.com/ar"
+    "add1": "https://youtu.be/xVI1gGbxyjI",
+    "add2": "https://youtu.be/NHrRHeCeGRc",
+    "gmap": "https://maps.app.goo.gl/vAHiQjr35d7r4tAi9",
+    "ar": "https://raw.githack.com/flyingpig-web/github/main/bohun-AR1/index.html"
   }
 }
