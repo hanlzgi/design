@@ -110,7 +110,7 @@
    "course": null,
    "available": true,
    "render": "editable",
-   "image": "assets/01_title/bg/toc-grid.webp",
+   "bg": "assets/01_title/bg/toc-grid.webp",
    "mapPin": false
   },
   {
