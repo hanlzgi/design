@@ -195,7 +195,6 @@
    "available": true,
    "render": "image",
    "mapPin": true,
-   "image": "assets/c1/full/c1-prestudy.webp",
    "buttons": [
     {
      "type": "ar",
@@ -236,7 +235,7 @@
     {
      "id": "badge",
      "x": 319,
-     "y": 140,
+     "y": 130,
      "w": 118,
      "size": 34,
      "color": "#ffffff",
@@ -248,7 +247,7 @@
      "id": "title",
      "x": 314,
      "y": 212,
-     "w": 900,
+     "w": 1200,
      "size": 50,
      "color": "#393973",
      "family": "sans",
@@ -289,13 +288,12 @@
    "available": true,
    "render": "image",
    "mapPin": true,
-   "image": "assets/c1/full/c1-intro1.webp",
    "hasText": true,
    "textBlocks": [
     {
      "id": "badge",
      "x": 345,
-     "y": 140,
+     "y": 130,
      "w": 80,
      "size": 34,
      "color": "#ffffff",
@@ -306,8 +304,8 @@
      "id": "title",
      "x": 314,
      "y": 212,
-     "w": 1099,
-     "size": 51,
+     "w": 1200,
+     "size": 50,
      "color": "#393973",
      "family": "sans",
      "weight": 700
@@ -315,45 +313,45 @@
     {
      "id": "s1",
      "type": "section",
-     "x": 352,
-     "y": 387,
+     "x": 320,
+     "y": 380,
      "w": 1010,
-     "size": 27,
+     "size": 25,
      "color": "#1d1d1b",
      "family": "sans",
      "weight": 400,
-     "lineHeight": 1.55
+     "lineHeight": 1.5
     },
     {
      "id": "s2",
      "type": "section",
-     "x": 352,
-     "y": 619,
+     "x": 320,
+     "y": 610,
      "w": 1010,
-     "size": 27,
+     "size": 25,
      "color": "#1d1d1b",
      "family": "sans",
      "weight": 400,
-     "lineHeight": 1.55
+     "lineHeight": 1.5
     },
     {
      "id": "s3",
      "type": "section",
-     "x": 352,
-     "y": 854,
+     "x": 320,
+     "y": 845,
      "w": 1010,
-     "size": 27,
+     "size": 25,
      "color": "#1d1d1b",
      "family": "sans",
      "weight": 400,
-     "lineHeight": 1.55
+     "lineHeight": 1.5
     },
     {
      "id": "caption1",
      "x": 1468,
      "y": 661,
      "w": 196,
-     "size": 24,
+     "size": 20,
      "color": "#333333",
      "family": "sans",
      "weight": 400,
@@ -364,7 +362,7 @@
      "x": 1465,
      "y": 960,
      "w": 202,
-     "size": 24,
+     "size": 20,
      "color": "#333333",
      "family": "sans",
      "weight": 400,
@@ -379,7 +377,7 @@
       "w": 338,
       "h": 279
      },
-     "radius": 14
+     "radius": 20
     },
     {
      "rect": {
@@ -388,7 +386,7 @@
       "w": 331,
       "h": 251
      },
-     "radius": 14
+     "radius": 20
     }
    ]
   },
