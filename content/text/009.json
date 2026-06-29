@@ -5,7 +5,7 @@
     "title": "김구는 자싱에서 어떻게 몸을 숨기며 독립운동을 이어 갔을까요?",
     "s1": {
       "label": "일제의 추적을 피해 머문 김구의 피난처",
-      "body": "윤봉길 의거 이후 일제는 김구와 대한민국 임시 정부 사람들을 집요하게 추적했습니다. 김구는 중국인 협력자들의 도움을 받아 자싱 으로 피신하였고, ‘장진’이라는 이름을 사용하는 등 신분을 숨겼습니 다. 이곳은 김구가 위험 속에서도 독립운동을 이어 간 장소 입니다."
+      "body": "윤봉길 의거 이후 일제는 김구와 대한민국 임시 정부 사람들을 집요하게 추적했습니다. 김구는 중국인 협력자들의 도움을 받아 자싱으로 피신하였고, ‘장진’이라는 이름을 사용하는 등 신분을 숨겼습니다. 이곳은 김구가 위험 속에서도 독립운동을 이어 간 장소 입니다."
     },
     "s2": {
       "label": "난후와 이어진 피신의 공간",
@@ -25,14 +25,14 @@
     "add2": "추가자료2"
   },
   "tips": {
-    "add1": "추가자료1 (링크)",
+    "add1": "역사기행 그곳 - 집이 곧 피난처, 비상구와 연결 된 집에서 생활했던 김구",
     "add2": "상하이에서 자싱으로 탈출한 김구",
-    "vr": "(VR) 현장 360° 둘러보기"
+    "vr": "(VR) 자싱김구피난처"
   },
   "links": {
-    "add1": "https://edu.mpva.go.kr",
-    "add2": "https://edu.mpva.go.kr",
-    "gmap": "https://maps.google.com",
-    "vr": "https://example.com/vr"
+    "add1": "https://youtu.be/6onKhu7UKjo",
+    "add2": "https://www.nmkpg.go.kr/webzine/story/cn.do?rid=294",
+    "gmap": "https://maps.app.goo.gl/RCxXrznxRwW81yzA9",
+    "vr": "https://cyber.i815.or.kr/special18/tour.html"
   }
 }
