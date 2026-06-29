@@ -1701,14 +1701,15 @@
      "place": "up"
     },
     {
-     "type": "vr",
+     "type": "ar",
      "rect": {
       "x": 1640,
       "y": 805,
       "w": 76,
       "h": 136
      },
-     "key": "vr"
+     "key": "ar",
+     "place": "up"
     },
     {
      "type": "gmap",
