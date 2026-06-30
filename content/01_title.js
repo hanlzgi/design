@@ -16,7 +16,6 @@ window.TEXTBOOK_CONTENT = {
     {
       "id": "toc",
       "type": "toc",
-      "bg": "assets/01_title/bg/toc-grid.webp",
       "texts": [
         { "id": "toc-title", "text": "목차", "x": 241, "y": 109, "size": 77, "font": "rounded-eb", "color": "#ffffff" },
         { "id": "toc-sub", "text": "지역을 선택하세요!", "x": 407, "y": 152, "size": 43, "font": "rounded-r", "color": "#ffffff" }

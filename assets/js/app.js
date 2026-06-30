@@ -17,7 +17,6 @@
 
   const GLYPH = { link:'⧉', share:'⤴', scrap:'\u{1F516}', note:'\u{1F4D3}', search:'\u{1F50D}',
     pdf:'⬇', fullscreen:'⛶', back:'←', portal:'\u{1F310}', map:'\u{1F4CD}', settings:'⚙' };
-  const AR_SVG='<svg class="ar-ico" viewBox="0 0 40 40" fill="none"><rect x="4" y="11" width="30" height="25" rx="7" stroke="#fff" stroke-width="3.2"/><path d="M11 11 V9 a4 4 0 0 1 4 -4 h3" stroke="#fff" stroke-width="3.2" stroke-linecap="round"/><polygon points="15,17 15,30 28,23.5" fill="#fff"/></svg>';
 
   const HOME_SVG='<svg viewBox="0 0 40 40" fill="none"><path d="M20 7 L34 19 H30 V33 H24 V24 H16 V33 H10 V19 H6 Z" fill="#fff"/></svg>';
 
@@ -110,7 +109,9 @@
   }
   function renderEditable(page, root){
     const cp=CONTENT.pages.find(x=>x.id===CONTENT_KEY[page.id]);
-    const bg=el('div','bg'); bg.style.backgroundImage=`url("${page.bg}${V}")`; root.appendChild(bg);
+    if(page.type==='toc'){ root.classList.add('framed'); root.appendChild(el('div','frm-panel')); }
+    else if(page.type==='title'){ root.classList.add('framed'); const ci=el('img','cover-img'); ci.src=page.bg+V; ci.draggable=false; root.appendChild(ci); }
+    else { const bg=el('div','bg'); bg.style.backgroundImage=`url("${page.bg}${V}")`; root.appendChild(bg); }
     if(cp){ (cp.texts||[]).forEach(t=>root.appendChild(renderText(t))); (cp.cards||[]).forEach(c=>root.appendChild(renderCard(c))); }
   }
 
@@ -201,11 +202,11 @@
       const url=content&&content.links?content.links[key]:null;
       let b;
       if(bt.type==='ar'){ b=el('div','btn-ar',{left:px(rc.x),top:px(rc.y),width:px(rc.w),height:px(rc.h)});
-        b.innerHTML='<span class="ar-inner">'+AR_SVG+'<span class="ar-txt">AR</span></span>'; }
+        b.innerHTML='<img class="ar-ico-img" src="assets/icons/ar-ico.svg'+V+'" alt="AR">'; }
       else if(bt.type==='gmap'){ b=el('div','btn-gmap',{left:px(rc.x),top:px(rc.y),width:px(rc.w),height:px(rc.h)});
         const gi=el('img','btn-gmap-img'); gi.src='assets/icons/gmap-marker.png'+V; b.appendChild(gi); }
       else if(bt.type==='vr'){ b=el('div','btn-vr',{left:px(rc.x),top:px(rc.y),width:px(rc.w),height:px(rc.h)});
-        b.innerHTML='<span class="ar-inner">'+AR_SVG+'<span class="ar-txt">VR</span></span>'; }
+        b.innerHTML='<img class="ar-ico-img" src="assets/icons/vr-ico.svg'+V+'" alt="VR">'; }
       else { b=el('div','btn-add',{left:px(rc.x),top:px(rc.y),width:px(rc.w),height:px(rc.h)}); b.textContent=label||''; }
       if(url) b.addEventListener('click',()=>window.open(url,'_blank'));
       if(tipTxt){ const tip=el('div','btn-tip'); tip.textContent=tipTxt; tipLayer.appendChild(tip);
@@ -455,6 +456,12 @@
     }
     else if(page.type==='note'){ renderNote(page,root); }
     else if(page.type==='reading'||page.type==='intro'||page.type==='prestudy'){ renderFrame(page,root); }
+    else if(page.type==='map' && page.mapSvg){
+      root.classList.add('framed'); root.appendChild(el('div','frm-panel'));
+      const mp=el('img','map-svg'); mp.src=page.mapSvg+V; mp.draggable=false; root.appendChild(mp);
+      if(page.mapBadge){ const bd=el('div','map-badge'); bd.textContent=page.mapBadge; root.appendChild(bd); }
+      if(page.mapTitle){ const tt=el('div','map-title'); tt.textContent=page.mapTitle; root.appendChild(tt); }
+    }
     else if(page.render==='image' && page.image){
       const im=el('img','full'); im.src=page.image+V; root.appendChild(im);
       if(page.imageAnswer){
@@ -467,6 +474,7 @@
     if(page.hasText) renderTextBlocks(page, root, content);
     if(page.photoSlots||page.buttons) addPageInteractions(page, root, content);
     stage.appendChild(root);
+    chrome.classList.toggle('hide-top', page.type==='title');
     chrome.classList.toggle('show-glyphs', page.render==='placeholder');
     chrome.classList.toggle('on-frame', page.type==='reading'||page.type==='intro'||page.type==='prestudy'||page.type==='note'||page.type==='map'||page.type==='quiz'||page.type==='toc');
     const pin=chrome.querySelector('.hot[data-action="map"]');
