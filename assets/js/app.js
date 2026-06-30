@@ -448,7 +448,6 @@
     root.classList.add('framed');
     root.appendChild(el('div', 'frm-panel'));
     const ttl = el('div', 'note-title'); ttl.innerHTML = (page.note && page.note.header ? page.note.header : '탐방 후기 작성하기') + NOTE_ICON_SVG; root.appendChild(ttl);
-    const chev = el('div', 'note-chevron'); chev.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="#33336b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5 L8 12 L15 19"/></svg>'; root.appendChild(chev);
     const cfg = page.note || {};
     const ed = cfg.editor || { x: 287, y: 291, w: 861, h: 677 };
     const card = el('div', 'note-card', { left: px(ed.x), top: px(ed.y), width: px(ed.w), height: px(ed.h) });
@@ -517,10 +516,7 @@
       if (page.mapTitle) { const tt = el('div', 'map-title'); tt.textContent = page.mapTitle; root.appendChild(tt); }
     }
     else if (page.render === 'image' && page.image) {
-      root.classList.add('framed');
-    root.appendChild(el('div', 'frm-panel'));
-    const ttl = el('div', 'note-title'); ttl.innerHTML = (page.note && page.note.header ? page.note.header : '탐방 후기 작성하기') + NOTE_ICON_SVG; root.appendChild(ttl);
-    const chev = el('div', 'note-chevron'); chev.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="#33336b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5 L8 12 L15 19"/></svg>'; root.appendChild(chev);
+      const im = el('img', 'full'); im.src = page.image + V; root.appendChild(im);
       if (page.imageAnswer) {
         let shown = false; const btn = el('button', 'reveal-btn'); btn.textContent = '정답 확인';
         btn.addEventListener('click', () => { shown = !shown; im.src = (shown ? page.imageAnswer : page.image) + V; btn.textContent = shown ? '문제 보기' : '정답 확인'; });

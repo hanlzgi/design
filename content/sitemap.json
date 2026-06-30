@@ -2607,18 +2607,17 @@
       "render": "image",
       "common": true,
       "mapPin": false,
-      "image": "assets/05_note/note-skeleton.webp",
       "note": {
         "editor": {
           "x": 232,
           "y": 262,
-          "w": 973,
+          "w": 950,
           "h": 696
         },
         "scrap": {
-          "x": 1205,
+          "x": 1218,
           "y": 262,
-          "w": 607,
+          "w": 594,
           "h": 696
         },
         "pdfLabel": "PDF 출력",
