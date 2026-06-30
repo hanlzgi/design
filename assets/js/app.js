@@ -255,14 +255,15 @@
       if (page.photoSlot.zoom) { im.style.cursor = 'zoom-in'; im.addEventListener('click', () => { zimg.src = 'photos/' + pd.display[0] + V; zoom.classList.add('show'); }); }
       root.appendChild(im);
     }
-    // 정답 팝업
+    // 정답 팝업: 딤 레이어 + ansN.svg + 텍스트 오버레이
     const ans = el('div', 'quiz-ans');
-    const acard = el('div', 'quiz-ans-card'); acard.addEventListener('click', e => e.stopPropagation());
-    const ahead = el('div', 'quiz-ans-head'); ahead.textContent = q.answerLabel || '정답'; acard.appendChild(ahead);
-    const abody = el('div', 'quiz-ans-body');
-    if (q.question) { const aq = el('div', 'quiz-ans-q'); aq.textContent = q.question; abody.appendChild(aq); }
-    const aex = el('div', 'quiz-ans-ex'); aex.textContent = q.explanation || ''; abody.appendChild(aex);
-    acard.appendChild(abody); ans.appendChild(acard);
+    const ap = page.answerPanel;
+    if (ap) { const aimg = el('img', 'quiz-ans-svg', { left: px(ap.x), top: px(ap.y), width: px(ap.w), height: px(ap.h) }); aimg.src = ap.src + V; aimg.draggable = false; ans.appendChild(aimg); }
+    const AL = page.answerLayout || {};
+    const mkTxt = (cfg, text) => { if (!cfg || text == null || text === '') return; const t = el('div', 'quiz-anstext', { left: px(cfg.x), top: px(cfg.y), width: px(cfg.w), fontSize: px(cfg.size || 28), color: cfg.color || '#1d1d1b', fontWeight: String(cfg.weight || 400), textAlign: cfg.align || 'left', lineHeight: String(cfg.lineHeight || 1.5) }); t.textContent = text; ans.appendChild(t); };
+    mkTxt(AL.question, q.question);
+    mkTxt(AL.label, q.answerLabel || '정답');
+    mkTxt(AL.explanation, q.explanation || '');
     ans.addEventListener('click', () => ans.classList.remove('show')); root.appendChild(ans);
     // 오답
     const wrong = el('div', 'quiz-wrong'); const wm = el('div', 'quiz-wrong-msg'); wm.textContent = q.wrongMsg || '다시 풀어보세요!'; wrong.appendChild(wm);
@@ -485,7 +486,7 @@
     if (page.render === 'editable') renderEditable(page, root);
     else if (page.type === 'quiz') {
       root.classList.add('framed'); root.appendChild(el('div', 'frm-panel'));
-      if (page.badgePanel) { const bp = el('img', 'quiz-panel', { left: px(248), top: px(46) }); bp.src = page.badgePanel + V; root.appendChild(bp); }
+      if (page.questionPanel) { const qp = page.questionPanel; const bp = el('img', 'quiz-panel', { left: px(qp.x), top: px(qp.y), width: px(qp.w), height: px(qp.h) }); bp.src = qp.src + V; bp.draggable = false; root.appendChild(bp); }
       renderQuiz(page, root, content);
     }
     else if (page.type === 'note') { renderNote(page, root); }
@@ -510,57 +511,57 @@
     stage.appendChild(root);
     chrome.classList.toggle('hide-top', page.type === 'title');
     chrome.classList.toggle('show-glyphs', page.render === 'placeholder');
-    chrome.classList.toggle('on-frame', page.type === 'reading' || page.type === 'intro' || page.type === 'prestudy' || page.type === 'note' || page.type === 'map' || page.type === 'quiz' || page.type === 'toc');
-    const pin = chrome.querySelector('.hot[data-action="map"]');
-    if (pin) { pin.disabled = !(page.mapPin && page.course); }
-    const _pg = document.querySelector('.pager'); if (_pg) _pg.style.display = (page.type === 'note') ? 'none' : '';
-    pagerPos.textContent = (idx + 1) + ' / ' + PAGES.length;
+    chrome.classList.toggle('on-frame', page.type==='reading'||page.type==='intro'||page.type==='prestudy'||page.type==='note'||page.type==='map'||page.type==='quiz'||page.type==='toc');
+    const pin=chrome.querySelector('.hot[data-action="map"]');
+    if(pin){ pin.disabled = !(page.mapPin && page.course); }
+    const _pg=document.querySelector('.pager'); if(_pg) _pg.style.display=(page.type==='note')?'none':'';
+    pagerPos.textContent=(idx+1)+' / '+PAGES.length;
     layout();
   }
 
-  const sov = document.getElementById('searchOv'), sin = document.getElementById('searchInput'), sres = document.getElementById('searchRes');
-  function openSearch() { sov.classList.add('open'); sin.value = ''; sres.innerHTML = ''; sin.focus(); }
-  function closeSearch() { sov.classList.remove('open'); }
-  function doSearch(q) {
-    q = q.trim(); if (!q) { sres.innerHTML = ''; return; }
-    const hits = PAGES.filter(p => p.title.includes(q) || p.id.includes(q)).slice(0, 30);
-    sres.innerHTML = hits.length ? hits.map(p => `<div class="res" data-id="${p.id}">${p.title} <small>${p.id}</small></div>`).join('') : '<div class="res">검색 결과 없음</div>';
-    sres.querySelectorAll('.res[data-id]').forEach(d => d.addEventListener('click', () => { closeSearch(); goId(d.dataset.id); }));
+  const sov=document.getElementById('searchOv'), sin=document.getElementById('searchInput'), sres=document.getElementById('searchRes');
+  function openSearch(){ sov.classList.add('open'); sin.value=''; sres.innerHTML=''; sin.focus(); }
+  function closeSearch(){ sov.classList.remove('open'); }
+  function doSearch(q){
+    q=q.trim(); if(!q){ sres.innerHTML=''; return; }
+    const hits=PAGES.filter(p=>p.title.includes(q)||p.id.includes(q)).slice(0,30);
+    sres.innerHTML=hits.length? hits.map(p=>`<div class="res" data-id="${p.id}">${p.title} <small>${p.id}</small></div>`).join('') : '<div class="res">검색 결과 없음</div>';
+    sres.querySelectorAll('.res[data-id]').forEach(d=>d.addEventListener('click',()=>{ closeSearch(); goId(d.dataset.id); }));
   }
-  sin.addEventListener('input', e => doSearch(e.target.value));
-  document.getElementById('searchClose').addEventListener('click', closeSearch);
+  sin.addEventListener('input',e=>doSearch(e.target.value));
+  document.getElementById('searchClose').addEventListener('click',closeSearch);
 
-  function checkPortrait() { document.body.classList.toggle('is-portrait', window.innerHeight > window.innerWidth); }
+  function checkPortrait(){ document.body.classList.toggle('is-portrait', window.innerHeight>window.innerWidth); }
 
-  document.getElementById('prev').addEventListener('click', () => go(idx - 1));
-  document.getElementById('next').addEventListener('click', () => go(idx + 1));
-  document.addEventListener('keydown', e => {
-    if (sov.classList.contains('open')) { if (e.key === 'Escape') closeSearch(); return; }
-    if (e.key === 'ArrowLeft') go(idx - 1); if (e.key === 'ArrowRight') go(idx + 1);
+  document.getElementById('prev').addEventListener('click',()=>go(idx-1));
+  document.getElementById('next').addEventListener('click',()=>go(idx+1));
+  document.addEventListener('keydown',e=>{
+    if(sov.classList.contains('open')){ if(e.key==='Escape')closeSearch(); return; }
+    if(e.key==='ArrowLeft')go(idx-1); if(e.key==='ArrowRight')go(idx+1);
   });
 
-  async function ensureContent(num) {
-    if (num in textCache) return textCache[num];
-    try { const r = await fetch('content/text/' + num + '.json'); textCache[num] = r.ok ? await r.json() : null; }
-    catch (e) { textCache[num] = null; }
+  async function ensureContent(num){
+    if(num in textCache) return textCache[num];
+    try{ const r=await fetch('content/text/'+num+'.json'); textCache[num]=r.ok?await r.json():null; }
+    catch(e){ textCache[num]=null; }
     return textCache[num];
   }
 
-  async function boot() {
-    try {
-      const [sm, ph] = await Promise.all([
-        fetch('content/sitemap.json').then(r => r.json()),
-        fetch('content/photos.json').then(r => r.ok ? r.json() : {}).catch(() => ({}))
+  async function boot(){
+    try{
+      const [sm,ph]=await Promise.all([
+        fetch('content/sitemap.json').then(r=>r.json()),
+        fetch('content/photos.json').then(r=>r.ok?r.json():{}).catch(()=>({}))
       ]);
-      SM = sm; PAGES = sm.pages; STAGE_W = sm.stage.w; STAGE_H = sm.stage.h; R = (sm.chrome && sm.chrome.iconR) || 34; PHOTOS = ph;
-    } catch (e) {
-      stage.style.transform = 'none';
-      stage.innerHTML = '<div style="padding:60px 40px;font-size:24px;line-height:1.6;color:#1d1d1b">데이터를 불러오지 못했습니다.<br>이 교재는 로컬 서버로 실행해야 합니다 —<br>폴더의 <b>start.bat</b> 더블클릭 (또는 <code>python -m http.server</code> 후 localhost:8000).</div>';
+      SM=sm; PAGES=sm.pages; STAGE_W=sm.stage.w; STAGE_H=sm.stage.h; R=(sm.chrome&&sm.chrome.iconR)||34; PHOTOS=ph;
+    }catch(e){
+      stage.style.transform='none';
+      stage.innerHTML='<div style="padding:60px 40px;font-size:24px;line-height:1.6;color:#1d1d1b">데이터를 불러오지 못했습니다.<br>이 교재는 로컬 서버로 실행해야 합니다 —<br>폴더의 <b>start.bat</b> 더블클릭 (또는 <code>python -m http.server</code> 후 localhost:8000).</div>';
       return;
     }
     buildChrome(); checkPortrait();
-    const hash = location.hash.replace('#', ''); const hi = PAGES.findIndex(p => p.id === hash);
-    idx = hi >= 0 ? hi : 0; await ensureContent(pad3(idx + 1)); render();
+    const hash=location.hash.replace('#',''); const hi=PAGES.findIndex(p=>p.id===hash);
+    idx=hi>=0?hi:0; await ensureContent(pad3(idx+1)); render();
   }
   boot();
 })();

@@ -1757,61 +1757,20 @@ body.is-portrait .portrait {
 .sec-bullet {
   position: absolute;
   left: -15px;
-  top: 5px;
+  top: 3px;
   width: 6px;
   height: 0.9em;
   background: #393973;
   border-radius: 1px;
 }
 
-.map-svg {
-  position: absolute;
-  left: 155px;
-  top: 15px;
-  width: 1750px;
-  height: 1050px;
-  border-radius: 36px;
-  z-index: 1;
-}
+/* ===== 표지/지도 프레임 (truncation 복구) ===== */
+.map-svg { position: absolute; left: 155px; top: 15px; width: 1750px; height: 1050px; border-radius: 36px; z-index: 1; }
+.map-badge { position: absolute; left: 243px; top: 92px; width: 186px; text-align: center; color: #fff; font-weight: 700; font-size: 25px; z-index: 2; font-family: var(--font-sans); }
+.map-title { position: absolute; left: 208px; top: 150px; width: 640px; color: #fff; font-weight: 800; font-size: 58px; line-height: 1.18; white-space: pre-line; z-index: 2; font-family: var(--font-sans); }
+.cover-img { position: absolute; left: 155px; top: 15px; width: 1750px; height: 1050px; border-radius: 36px; z-index: 1; object-fit: cover; }
+.chrome.hide-top .hot.top { display: none; }
 
-.map-badge {
-  position: absolute;
-  left: 243px;
-  top: 92px;
-  width: 186px;
-  text-align: center;
-  color: #fff;
-  font-weight: 700;
-  font-size: 25px;
-  z-index: 2;
-  font-family: var(--font-sans);
-}
-
-.map-title {
-  position: absolute;
-  left: 208px;
-  top: 150px;
-  width: 640px;
-  color: #fff;
-  font-weight: 800;
-  font-size: 58px;
-  line-height: 1.18;
-  white-space: pre-line;
-  z-index: 2;
-  font-family: var(--font-sans);
-}
-
-.cover-img {
-  position: absolute;
-  left: 155px;
-  top: 15px;
-  width: 1750px;
-  height: 1050px;
-  border-radius: 36px;
-  z-index: 1;
-  object-fit: cover;
-}
-
-.chrome.hide-top .hot.top {
-  display: none;
-}
+/* ===== 퀴즈 정답: 딤 위 ansN.svg + 텍스트 오버레이 ===== */
+.quiz-ans-svg { position: absolute; z-index: 41; }
+.quiz-anstext { position: absolute; z-index: 42; white-space: pre-line; font-family: var(--font-sans); }
