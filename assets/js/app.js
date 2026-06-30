@@ -72,9 +72,10 @@
 
   const curPage = () => PAGES[idx];
   async function go(i, push = true) {
-    if (i < 0 || i >= PAGES.length) return;
+    if (i < 0 || i >= PAGES.length || i === idx) return;
+    const _dir = i > idx ? 1 : -1;
     if (push) history.push(idx);
-    idx = i; await ensureContent(pad3(idx + 1)); render();
+    idx = i; await ensureContent(pad3(idx + 1)); render(_dir);
   }
   function goId(id) { const i = PAGES.findIndex(p => p.id === id); if (i >= 0) go(i); }
 
@@ -478,8 +479,8 @@
     if (page.type === 'prestudy') { const ms = el('div', 'frm-search'); ms.innerHTML = '<svg viewBox="0 0 40 40" fill="none" stroke="#575756" stroke-width="3.4" stroke-linecap="round"><circle cx="17" cy="17" r="10"/><line x1="25" y1="25" x2="33" y2="33"/></svg>'; root.appendChild(ms); }
   }
 
-  function render() {
-    stage.innerHTML = '';
+  let _animTimer = 0;
+  function render(dir) {
     const page = curPage();
     const content = textCache[pad3(idx + 1)];
     const root = el('div', 'page');
@@ -513,7 +514,25 @@
       const nz2 = el('div', 'nav-zone nav-next'); nz2.addEventListener('click', () => go(idx + 1));
       root.appendChild(nz1); root.appendChild(nz2);
     }
-    stage.appendChild(root);
+    const _reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const _olds = [...stage.querySelectorAll('.page')];
+    if (dir && _olds.length && !_reduce) {
+      clearTimeout(_animTimer);
+      stage.classList.add('pg-sliding');
+      const _old = _olds[_olds.length - 1];
+      _olds.slice(0, -1).forEach(o => o.remove());
+      _old.style.pointerEvents = 'none';
+      root.style.transform = 'translateX(' + (dir > 0 ? 1750 : -1750) + 'px)';
+      stage.appendChild(root);
+      void root.offsetWidth;
+      root.classList.add('pg-anim'); _old.classList.add('pg-anim');
+      root.style.transform = 'translateX(0)';
+      _old.style.transform = 'translateX(' + (dir > 0 ? -1750 : 1750) + 'px)';
+      _animTimer = setTimeout(() => { _old.remove(); root.classList.remove('pg-anim'); root.style.transform = ''; stage.classList.remove('pg-sliding'); }, 400);
+    } else {
+      _olds.forEach(o => o.remove());
+      stage.appendChild(root);
+    }
     chrome.classList.toggle('hide-top', page.type === 'title');
     chrome.classList.toggle('show-glyphs', page.render === 'placeholder');
     chrome.classList.toggle('on-frame', page.type==='reading'||page.type==='intro'||page.type==='prestudy'||page.type==='note'||page.type==='map'||page.type==='quiz'||page.type==='toc');

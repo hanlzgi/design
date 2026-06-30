@@ -1780,3 +1780,8 @@ body.is-portrait .portrait {
 .nav-zone { position: absolute; z-index: 2; bottom: 15px; width: 320px; height: 220px; cursor: pointer; }
 .nav-prev { left: 155px; }
 .nav-next { right: 15px; }
+
+/* ===== 페이지 슬라이드+페이드 전환 ===== */
+.page.pg-anim { transition: transform .38s cubic-bezier(.22,.61,.36,1); will-change: transform; }
+/* 슬라이드를 frm-panel 창(좌155 / 우15)으로 클리핑 → 좌측 UI는 고정, 패널 내용만 그 안에서 전환 */
+.stage.pg-sliding { clip-path: inset(0 15px 0 155px); }
