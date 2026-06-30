@@ -1867,17 +1867,17 @@
         "zoom": true
       },
       "options": {
-        "x": 1063,
-        "y": 486,
+        "x": 1050,
+        "y": 485,
         "stepY": 123,
         "w": 677,
         "h": 81
       },
       "answerLayout": {
         "question": {
-          "x": 380,
-          "y": 320,
-          "w": 1160,
+          "x": 525,
+          "y": 400,
+          "w": 900,
           "size": 30,
           "color": "#ffffff",
           "weight": 700,
@@ -1894,13 +1894,13 @@
           "align": "center"
         },
         "explanation": {
-          "x": 495,
-          "y": 625,
-          "w": 990,
+          "x": 542,
+          "y": 640,
+          "w": 900,
           "size": 27,
           "color": "#1d1d1b",
           "weight": 400,
-          "lineHeight": 1.6
+          "lineHeight": 1.5
         }
       },
       "qtext": {
@@ -1955,18 +1955,18 @@
         "zoom": true
       },
       "options": {
-        "x": 1063,
-        "y": 499,
+        "x": 1050,
+        "y": 485,
         "stepY": 123,
         "w": 677,
         "h": 81
       },
       "answerLayout": {
         "question": {
-          "x": 380,
-          "y": 320,
-          "w": 1160,
-          "size": 30,
+          "x": 487,
+          "y": 400,
+          "w": 1000,
+          "size": 28,
           "color": "#ffffff",
           "weight": 700,
           "align": "center",
@@ -1974,7 +1974,7 @@
         },
         "label": {
           "x": 561,
-          "y": 548,
+          "y": 587,
           "w": 847,
           "size": 34,
           "color": "#ffffff",
@@ -1982,13 +1982,13 @@
           "align": "center"
         },
         "explanation": {
-          "x": 495,
-          "y": 625,
-          "w": 990,
+          "x": 542,
+          "y": 667,
+          "w": 900,
           "size": 27,
           "color": "#1d1d1b",
           "weight": 400,
-          "lineHeight": 1.6
+          "lineHeight": 1.5
         }
       },
       "questionPanel": {
@@ -2017,7 +2017,7 @@
       "qtext": {
         "x": 292,
         "y": 232,
-        "w": 1490,
+        "w": 1475,
         "size": 29,
         "color": "#ffffff",
         "weight": 600,
@@ -2025,7 +2025,7 @@
       },
       "photoSlot": {
         "rect": {
-          "x": 268,
+          "x": 260,
           "y": 479,
           "w": 715,
           "h": 491
@@ -2034,26 +2034,26 @@
         "zoom": true
       },
       "options": {
-        "x": 1063,
-        "y": 499,
+        "x": 1050,
+        "y": 485,
         "stepY": 123,
         "w": 677,
         "h": 81
       },
       "answerLayout": {
         "question": {
-          "x": 380,
-          "y": 320,
-          "w": 1160,
-          "size": 30,
+          "x": 440,
+          "y": 360,
+          "w": 1000,
+          "size": 28,
           "color": "#ffffff",
           "weight": 700,
           "align": "center",
           "lineHeight": 1.4
         },
         "label": {
-          "x": 561,
-          "y": 548,
+          "x": 550,
+          "y": 560,
           "w": 847,
           "size": 34,
           "color": "#ffffff",
@@ -2061,13 +2061,13 @@
           "align": "center"
         },
         "explanation": {
-          "x": 495,
-          "y": 625,
-          "w": 990,
+          "x": 510,
+          "y": 650,
+          "w": 920,
           "size": 27,
           "color": "#1d1d1b",
           "weight": 400,
-          "lineHeight": 1.6
+          "lineHeight": 1.5
         }
       },
       "questionPanel": {
