@@ -1774,3 +1774,9 @@ body.is-portrait .portrait {
 /* ===== 퀴즈 정답: 딤 위 ansN.svg + 텍스트 오버레이 ===== */
 .quiz-ans-svg { position: absolute; z-index: 41; }
 .quiz-anstext { position: absolute; z-index: 42; white-space: pre-line; font-family: var(--font-sans); }
+
+
+/* ===== 페이지 이동 코너 탭존(모바일) — 버튼보다 낮은 z-index로 충돌 자동 방지 ===== */
+.nav-zone { position: absolute; z-index: 2; bottom: 15px; width: 320px; height: 220px; cursor: pointer; }
+.nav-prev { left: 155px; }
+.nav-next { right: 15px; }

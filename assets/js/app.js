@@ -508,6 +508,11 @@
     if (page.mapHotspots) addMapInteraction(page, root);
     if (page.hasText) renderTextBlocks(page, root, content);
     if (page.photoSlots || page.buttons) addPageInteractions(page, root, content);
+    if (page.type !== 'note' && page.render !== 'placeholder') {
+      const nz1 = el('div', 'nav-zone nav-prev'); nz1.addEventListener('click', () => go(idx - 1));
+      const nz2 = el('div', 'nav-zone nav-next'); nz2.addEventListener('click', () => go(idx + 1));
+      root.appendChild(nz1); root.appendChild(nz2);
+    }
     stage.appendChild(root);
     chrome.classList.toggle('hide-top', page.type === 'title');
     chrome.classList.toggle('show-glyphs', page.render === 'placeholder');
@@ -537,8 +542,18 @@
   document.getElementById('next').addEventListener('click',()=>go(idx+1));
   document.addEventListener('keydown',e=>{
     if(sov.classList.contains('open')){ if(e.key==='Escape')closeSearch(); return; }
-    if(e.key==='ArrowLeft')go(idx-1); if(e.key==='ArrowRight')go(idx+1);
+    const ae=document.activeElement;
+    if(ae && (ae.isContentEditable || ae.tagName==='INPUT' || ae.tagName==='TEXTAREA')) return;
+    if(e.key==='ArrowLeft')go(idx-1); else if(e.key==='ArrowRight')go(idx+1);
   });
+
+  let _wheelLock=false;
+  window.addEventListener('wheel',e=>{
+    const p=curPage(); if(p && p.type==='note') return;
+    if(Math.abs(e.deltaY)<8) return;
+    if(_wheelLock) return; _wheelLock=true; setTimeout(()=>{_wheelLock=false;},650);
+    if(e.deltaY>0) go(idx+1); else go(idx-1);
+  },{passive:true});
 
   async function ensureContent(num){
     if(num in textCache) return textCache[num];
