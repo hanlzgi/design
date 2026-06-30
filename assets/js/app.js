@@ -310,7 +310,19 @@
     const node = stage.querySelector('.page') || stage;
     try {
       toast('스크랩 중…');
-      const cv = await html2canvas(node, { scale: 1.2, backgroundColor: '#ffffff', useCORS: true, logging: false });
+      // html2canvas는 SVG <img>(예: 지도 c1-map.svg)를 그리지 못함 → 미리 PNG로 래스터화해 클론에서 교체
+      const svgMap = new Map();
+      node.querySelectorAll('img').forEach(img => {
+        const isSvg = img.classList.contains('map-svg') || /\.svg(\?|$)/i.test(img.src || '');
+        if (!isSvg) return;
+        try {
+          const cw = img.offsetWidth || img.naturalWidth || 1750, ch = img.offsetHeight || img.naturalHeight || 1050;
+          const cnv = document.createElement('canvas'); cnv.width = Math.max(1, Math.round(cw * 1.6)); cnv.height = Math.max(1, Math.round(ch * 1.6));
+          cnv.getContext('2d').drawImage(img, 0, 0, cnv.width, cnv.height);
+          svgMap.set(img.src, cnv.toDataURL('image/png'));
+        } catch (e) {}
+      });
+      const cv = await html2canvas(node, { scale: 1.2, backgroundColor: '#ffffff', useCORS: true, logging: false, onclone: (doc) => { doc.querySelectorAll('img').forEach(ci => { const png = svgMap.get(ci.src); if (png) ci.src = png; }); } });
       const maxW = 1400; let out = cv;
       if (cv.width > maxW) { const c2 = document.createElement('canvas'); c2.width = maxW; c2.height = Math.round(cv.height * maxW / cv.width); c2.getContext('2d').drawImage(cv, 0, 0, c2.width, c2.height); out = c2; }
       const data = out.toDataURL('image/jpeg', 0.9);
