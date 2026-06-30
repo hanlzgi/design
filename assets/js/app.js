@@ -310,10 +310,10 @@
     const node = stage.querySelector('.page') || stage;
     try {
       toast('스크랩 중…');
-      const cv = await html2canvas(node, { scale: 0.55, backgroundColor: '#ffffff', useCORS: true, logging: false });
-      const maxW = 760; let out = cv;
+      const cv = await html2canvas(node, { scale: 1.2, backgroundColor: '#ffffff', useCORS: true, logging: false });
+      const maxW = 1400; let out = cv;
       if (cv.width > maxW) { const c2 = document.createElement('canvas'); c2.width = maxW; c2.height = Math.round(cv.height * maxW / cv.width); c2.getContext('2d').drawImage(cv, 0, 0, c2.width, c2.height); out = c2; }
-      const data = out.toDataURL('image/jpeg', 0.82);
+      const data = out.toDataURL('image/jpeg', 0.9);
       await idbAdd('scraps', { img: data, title: p.title, pid: p.id, ts: Date.now() });
       const all = await idbAll('scraps');
       toast("'" + p.title + "' 스크랩됨 · 모음 " + all.length + "장");
@@ -323,6 +323,8 @@
   // ===== 탐방노트 렌더 =====
   let SCRAPS = [];
   const ERASER_SVG = '<svg viewBox="0 0 18 18"><path class="ql-stroke" d="M5 12.5 L12.5 5 L15.5 8 L8 15.5 Z" fill="none"></path><line class="ql-stroke" x1="3" y1="15.5" x2="15.5" y2="15.5"></line></svg>';
+  const NOTE_ICON_SVG = ' <svg class="note-title-ico" viewBox="0 0 40 40" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 6 h13 l8 8 v19 a2 2 0 0 1-2 2 H10 a2 2 0 0 1-2-2 V8 a2 2 0 0 1 2-2 Z"/><path d="M23 6 v8 h8"/><line x1="14" y1="23" x2="26" y2="23"/><line x1="14" y1="29" x2="23" y2="29"/></svg>';
+  const SCRAP_HEAD_SVG = '<svg class="note-scrap-ico" viewBox="0 0 24 24" fill="none" stroke="#5a51bd" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4 h6 v6"/><path d="M20 4 L11 13"/><path d="M18 13 v6 a1 1 0 0 1-1 1 H6 a1 1 0 0 1-1-1 V8 a1 1 0 0 1 1-1 h6"/></svg>';
   function noteToolbarHTML() {
     return '<span class="ql-formats"><button type="button" class="ql-bold"></button><button type="button" class="ql-italic"></button><button type="button" class="ql-underline"></button></span>' +
       '<span class="ql-formats"><button type="button" class="ql-list" value="ordered"></button><button type="button" class="ql-list" value="bullet"></button></span>' +
@@ -431,7 +433,10 @@
   }
 
   function renderNote(page, root) {
-    const im = el('img', 'full'); im.src = page.image + V; root.appendChild(im);
+    root.classList.add('framed');
+    root.appendChild(el('div', 'frm-panel'));
+    const ttl = el('div', 'note-title'); ttl.innerHTML = (page.note && page.note.header ? page.note.header : '탐방 후기 작성하기') + NOTE_ICON_SVG; root.appendChild(ttl);
+    const chev = el('div', 'note-chevron'); chev.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="#33336b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5 L8 12 L15 19"/></svg>'; root.appendChild(chev);
     const cfg = page.note || {};
     const ed = cfg.editor || { x: 287, y: 291, w: 861, h: 677 };
     const card = el('div', 'note-card', { left: px(ed.x), top: px(ed.y), width: px(ed.w), height: px(ed.h) });
@@ -443,9 +448,10 @@
     const pdf = el('button', 'note-pdf'); pdf.type = 'button'; pdf.textContent = cfg.pdfLabel || 'PDF 출력';
     btns.appendChild(clr); btns.appendChild(pdf); card.appendChild(btns);
     root.appendChild(card);
-    const sc = cfg.scrap || { x: 1252, y: 354, w: 540, h: 612 };
+    const sc = cfg.scrap || { x: 1223, y: 262, w: 589, h: 696 };
     const scard = el('div', 'note-scrap', { left: px(sc.x), top: px(sc.y), width: px(sc.w), height: px(sc.h) });
-    const grid = el('div', 'scrap-grid'); scard.appendChild(grid); root.appendChild(scard);
+    const shd = el('div', 'note-scrap-head'); shd.innerHTML = SCRAP_HEAD_SVG + '<span>' + (cfg.scrapTitle || '페이지 스크랩 모음') + '</span>'; scard.appendChild(shd);
+    const sbody = el('div', 'scrap-body'); const grid = el('div', 'scrap-grid'); sbody.appendChild(grid); scard.appendChild(sbody); root.appendChild(scard);
     renderScrapGrid(grid);
     if (!window.Quill) { edc.innerHTML = '<div class="note-noeditor">에디터를 불러오지 못했습니다. 인터넷 연결을 확인한 뒤 새로고침하세요.</div>'; return; }
     const q = new Quill(edc, {
@@ -499,7 +505,10 @@
       if (page.mapTitle) { const tt = el('div', 'map-title'); tt.textContent = page.mapTitle; root.appendChild(tt); }
     }
     else if (page.render === 'image' && page.image) {
-      const im = el('img', 'full'); im.src = page.image + V; root.appendChild(im);
+      root.classList.add('framed');
+    root.appendChild(el('div', 'frm-panel'));
+    const ttl = el('div', 'note-title'); ttl.innerHTML = (page.note && page.note.header ? page.note.header : '탐방 후기 작성하기') + NOTE_ICON_SVG; root.appendChild(ttl);
+    const chev = el('div', 'note-chevron'); chev.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="#33336b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5 L8 12 L15 19"/></svg>'; root.appendChild(chev);
       if (page.imageAnswer) {
         let shown = false; const btn = el('button', 'reveal-btn'); btn.textContent = '정답 확인';
         btn.addEventListener('click', () => { shown = !shown; im.src = (shown ? page.imageAnswer : page.image) + V; btn.textContent = shown ? '문제 보기' : '정답 확인'; });

@@ -1785,3 +1785,15 @@ body.is-portrait .portrait {
 .page.pg-anim { transition: transform .38s cubic-bezier(.22,.61,.36,1); will-change: transform; }
 /* 슬라이드를 frm-panel 창(좌155 / 우15)으로 클리핑 → 좌측 UI는 고정, 패널 내용만 그 안에서 전환 */
 .stage.pg-sliding { clip-path: inset(0 15px 0 155px); }
+
+/* ===== 탐방노트 CSS 프레임 (skeleton 대체) ===== */
+.note-title { position: absolute; left: 248px; top: 78px; display: flex; align-items: center; gap: 20px; color: #fff; font-family: var(--font-sans); font-weight: 800; font-size: 60px; z-index: 11; white-space: nowrap; }
+.note-title-ico { width: 54px; height: 54px; flex: 0 0 auto; }
+.note-scrap { display: flex; flex-direction: column; padding: 20px 22px 22px; }
+.note-scrap-head { display: flex; align-items: center; gap: 12px; flex: 0 0 auto; color: #2c2c4a; font-family: var(--font-sans); font-weight: 800; font-size: 29px; padding: 2px 6px 16px; }
+.note-scrap-ico { width: 30px; height: 30px; flex: 0 0 auto; }
+.scrap-body { position: relative; flex: 1 1 auto; min-height: 0; background: #c9c9d6; border-radius: 18px; overflow: hidden; }
+.scrap-body .scrap-grid { position: absolute; inset: 0; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 16px; }
+.note-chevron { position: absolute; left: 1182px; top: 558px; width: 44px; height: 86px; background: #fff; border-radius: 14px; box-shadow: 0 4px 16px rgba(60, 50, 120, .2); display: flex; align-items: center; justify-content: center; z-index: 13; }
+.note-chevron svg { width: 22px; height: 22px; }
+.note-editor.ql-container.ql-snow { border: 1.5px solid #e6e4f3 !important; border-radius: 14px; margin: 0 16px 16px; overflow: hidden; }
