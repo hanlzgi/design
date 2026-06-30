@@ -1797,3 +1797,8 @@ body.is-portrait .portrait {
 .note-chevron { position: absolute; left: 1168px; top: 548px; width: 70px; height: 104px; background: #fff; border-radius: 18px; box-shadow: 0 4px 16px rgba(60, 50, 120, .2); display: flex; align-items: center; justify-content: center; z-index: 13; }
 .note-chevron svg { width: 22px; height: 22px; }
 .note-editor.ql-container.ql-snow { border: 1.5px solid #e6e4f3 !important; border-radius: 14px; margin: 0 16px 16px; overflow: hidden; }
+
+/* ===== 노트: 두 카드 연결(마주보는 면 직각으로 맞붙임) + 셰브론 범프 ===== */
+.note-card { border-radius: 26px 0 0 26px; }
+.note-scrap { border-radius: 0 24px 24px 0; }
+.note-chevron { left: 1170px; top: 562px; width: 74px; height: 74px; border-radius: 50%; box-shadow: 0 5px 18px rgba(60, 50, 120, .22); }
