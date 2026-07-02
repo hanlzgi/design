@@ -1795,3 +1795,16 @@ body.is-portrait .portrait {
 .scrap-body { position: relative; flex: 1 1 auto; min-height: 0; background: #c9c9d6; border-radius: 18px; overflow: hidden; }
 .scrap-body .scrap-grid { position: absolute; inset: 0; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 16px; }
 .note-editor.ql-container.ql-snow { border: 1.5px solid #e6e4f3 !important; border-radius: 14px; margin: 0 16px 16px; overflow: hidden; }
+
+/* ===== Figma 리디자인: 그라데이션 + 배지(흰알약+원+깃발) ===== */
+.frm-panel { background: linear-gradient(180deg, #737de4 0%, #5f68d4 45%, #464db6 100%); border-radius: 44px; }
+.frm-badge { left: 247px; top: 156px; width: 200px; height: 56px; background: #fff; border-radius: 39px; box-shadow: 0 4px 14px rgba(40, 40, 90, .16); }
+.frm-flag { left: 9px; top: 8px; width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(140deg, #9aa2ec, #6f79dd); display: flex; align-items: center; justify-content: center; }
+.frm-flag::after { content: none; }
+.frm-flag svg { width: 19px; height: 23px; }
+
+/* ===== 지도 카드 X 닫기 버튼 (딤 클릭 닫기는 유지) ===== */
+.map-close { position: absolute; z-index: 8; width: 40px; height: 40px; border: 0; background: none; color: #dcdcec; cursor: pointer; display: none; align-items: center; justify-content: center; padding: 0; }
+.map-open .map-close { display: flex; }
+.map-close svg { width: 26px; height: 26px; }
+.map-close:hover { color: #fff; }

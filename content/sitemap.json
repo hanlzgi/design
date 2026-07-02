@@ -235,22 +235,22 @@
       "textBlocks": [
         {
           "id": "badge",
-          "x": 319,
-          "y": 130,
-          "w": 118,
-          "size": 34,
-          "color": "#ffffff",
+          "x": 298,
+          "y": 172,
+          "w": 150,
+          "size": 24,
+          "color": "#393973",
           "family": "sans",
           "weight": 700,
-          "align": "left"
+          "align": "center"
         },
         {
           "id": "title",
-          "x": 315,
-          "y": 210,
-          "w": 1200,
-          "size": 50,
-          "color": "#393973",
+          "x": 250,
+          "y": 238,
+          "w": 1560,
+          "size": 58,
+          "color": "#ffffff",
           "family": "sans",
           "weight": 700,
           "align": "left"
@@ -294,21 +294,22 @@
       "textBlocks": [
         {
           "id": "badge",
-          "x": 340,
-          "y": 130,
-          "w": 130,
-          "size": 32,
-          "color": "#ffffff",
+          "x": 298,
+          "y": 172,
+          "w": 150,
+          "size": 24,
+          "color": "#393973",
           "family": "sans",
-          "weight": 700
+          "weight": 700,
+          "align": "center"
         },
         {
           "id": "title",
-          "x": 315,
-          "y": 210,
-          "w": 1200,
-          "size": 50,
-          "color": "#393973",
+          "x": 250,
+          "y": 238,
+          "w": 1560,
+          "size": 58,
+          "color": "#ffffff",
           "family": "sans",
           "weight": 700
         },
@@ -404,21 +405,22 @@
       "textBlocks": [
         {
           "id": "badge",
-          "x": 305,
-          "y": 130,
-          "w": 170,
-          "size": 32,
-          "color": "#ffffff",
+          "x": 298,
+          "y": 172,
+          "w": 150,
+          "size": 24,
+          "color": "#393973",
           "family": "sans",
-          "weight": 700
+          "weight": 700,
+          "align": "center"
         },
         {
           "id": "title",
-          "x": 315,
-          "y": 210,
-          "w": 1200,
-          "size": 50,
-          "color": "#393973",
+          "x": 250,
+          "y": 238,
+          "w": 1560,
+          "size": 58,
+          "color": "#ffffff",
           "family": "sans",
           "weight": 700
         },
@@ -527,21 +529,22 @@
       "textBlocks": [
         {
           "id": "badge",
-          "x": 305,
-          "y": 130,
-          "w": 170,
-          "size": 32,
-          "color": "#ffffff",
+          "x": 298,
+          "y": 172,
+          "w": 150,
+          "size": 24,
+          "color": "#393973",
           "family": "sans",
-          "weight": 700
+          "weight": 700,
+          "align": "center"
         },
         {
           "id": "title",
-          "x": 315,
-          "y": 210,
-          "w": 1250,
-          "size": 50,
-          "color": "#393973",
+          "x": 250,
+          "y": 238,
+          "w": 1560,
+          "size": 58,
+          "color": "#ffffff",
           "family": "sans",
           "weight": 700
         },
@@ -650,21 +653,22 @@
       "textBlocks": [
         {
           "id": "badge",
-          "x": 340,
-          "y": 130,
-          "w": 130,
-          "size": 32,
-          "color": "#ffffff",
+          "x": 298,
+          "y": 172,
+          "w": 150,
+          "size": 24,
+          "color": "#393973",
           "family": "sans",
-          "weight": 700
+          "weight": 700,
+          "align": "center"
         },
         {
           "id": "title",
-          "x": 315,
-          "y": 210,
-          "w": 1300,
-          "size": 50,
-          "color": "#393973",
+          "x": 250,
+          "y": 238,
+          "w": 1560,
+          "size": 58,
+          "color": "#ffffff",
           "family": "sans",
           "weight": 700
         },
@@ -770,21 +774,22 @@
       "textBlocks": [
         {
           "id": "badge",
-          "x": 305,
-          "y": 130,
-          "w": 170,
-          "size": 32,
-          "color": "#ffffff",
+          "x": 298,
+          "y": 172,
+          "w": 150,
+          "size": 24,
+          "color": "#393973",
           "family": "sans",
-          "weight": 700
+          "weight": 700,
+          "align": "center"
         },
         {
           "id": "title",
-          "x": 315,
-          "y": 210,
-          "w": 1250,
-          "size": 50,
-          "color": "#393973",
+          "x": 250,
+          "y": 238,
+          "w": 1560,
+          "size": 58,
+          "color": "#ffffff",
           "family": "sans",
           "weight": 700
         },
@@ -892,21 +897,22 @@
       "textBlocks": [
         {
           "id": "badge",
-          "x": 305,
-          "y": 130,
-          "w": 170,
-          "size": 32,
-          "color": "#ffffff",
+          "x": 298,
+          "y": 172,
+          "w": 150,
+          "size": 24,
+          "color": "#393973",
           "family": "sans",
-          "weight": 700
+          "weight": 700,
+          "align": "center"
         },
         {
           "id": "title",
-          "x": 315,
-          "y": 210,
-          "w": 1400,
-          "size": 50,
-          "color": "#393973",
+          "x": 250,
+          "y": 238,
+          "w": 1560,
+          "size": 58,
+          "color": "#ffffff",
           "family": "sans",
           "weight": 700
         },
@@ -1014,21 +1020,22 @@
       "textBlocks": [
         {
           "id": "badge",
-          "x": 303,
-          "y": 130,
-          "w": 170,
-          "size": 32,
-          "color": "#ffffff",
+          "x": 298,
+          "y": 172,
+          "w": 150,
+          "size": 24,
+          "color": "#393973",
           "family": "sans",
-          "weight": 700
+          "weight": 700,
+          "align": "center"
         },
         {
           "id": "title",
-          "x": 315,
-          "y": 210,
-          "w": 1300,
-          "size": 50,
-          "color": "#393973",
+          "x": 250,
+          "y": 238,
+          "w": 1560,
+          "size": 58,
+          "color": "#ffffff",
           "family": "sans",
           "weight": 700
         },
@@ -1136,21 +1143,22 @@
       "textBlocks": [
         {
           "id": "badge",
-          "x": 305,
-          "y": 130,
-          "w": 170,
-          "size": 32,
-          "color": "#ffffff",
+          "x": 298,
+          "y": 172,
+          "w": 150,
+          "size": 24,
+          "color": "#393973",
           "family": "sans",
-          "weight": 700
+          "weight": 700,
+          "align": "center"
         },
         {
           "id": "title",
-          "x": 315,
-          "y": 210,
-          "w": 1200,
-          "size": 50,
-          "color": "#393973",
+          "x": 250,
+          "y": 238,
+          "w": 1560,
+          "size": 58,
+          "color": "#ffffff",
           "family": "sans",
           "weight": 700
         },
@@ -1259,21 +1267,22 @@
       "textBlocks": [
         {
           "id": "badge",
-          "x": 305,
-          "y": 130,
-          "w": 170,
-          "size": 32,
-          "color": "#ffffff",
+          "x": 298,
+          "y": 172,
+          "w": 150,
+          "size": 24,
+          "color": "#393973",
           "family": "sans",
-          "weight": 700
+          "weight": 700,
+          "align": "center"
         },
         {
           "id": "title",
-          "x": 315,
-          "y": 210,
-          "w": 1250,
-          "size": 50,
-          "color": "#393973",
+          "x": 250,
+          "y": 238,
+          "w": 1560,
+          "size": 58,
+          "color": "#ffffff",
           "family": "sans",
           "weight": 700
         },
@@ -1381,21 +1390,22 @@
       "textBlocks": [
         {
           "id": "badge",
-          "x": 340,
-          "y": 130,
-          "w": 130,
-          "size": 32,
-          "color": "#ffffff",
+          "x": 298,
+          "y": 172,
+          "w": 150,
+          "size": 24,
+          "color": "#393973",
           "family": "sans",
-          "weight": 700
+          "weight": 700,
+          "align": "center"
         },
         {
           "id": "title",
-          "x": 315,
-          "y": 210,
-          "w": 1250,
-          "size": 50,
-          "color": "#393973",
+          "x": 250,
+          "y": 238,
+          "w": 1560,
+          "size": 58,
+          "color": "#ffffff",
           "family": "sans",
           "weight": 700
         },
@@ -1492,21 +1502,22 @@
       "textBlocks": [
         {
           "id": "badge",
-          "x": 305,
-          "y": 130,
-          "w": 170,
-          "size": 32,
-          "color": "#ffffff",
+          "x": 298,
+          "y": 172,
+          "w": 150,
+          "size": 24,
+          "color": "#393973",
           "family": "sans",
-          "weight": 700
+          "weight": 700,
+          "align": "center"
         },
         {
           "id": "title",
-          "x": 315,
-          "y": 210,
-          "w": 1200,
-          "size": 50,
-          "color": "#393973",
+          "x": 250,
+          "y": 238,
+          "w": 1560,
+          "size": 58,
+          "color": "#ffffff",
           "family": "sans",
           "weight": 700
         },
@@ -1614,21 +1625,22 @@
       "textBlocks": [
         {
           "id": "badge",
-          "x": 303,
-          "y": 130,
-          "w": 170,
-          "size": 32,
-          "color": "#ffffff",
+          "x": 298,
+          "y": 172,
+          "w": 150,
+          "size": 24,
+          "color": "#393973",
           "family": "sans",
-          "weight": 700
+          "weight": 700,
+          "align": "center"
         },
         {
           "id": "title",
-          "x": 315,
-          "y": 210,
-          "w": 1400,
-          "size": 50,
-          "color": "#393973",
+          "x": 250,
+          "y": 238,
+          "w": 1560,
+          "size": 58,
+          "color": "#ffffff",
           "family": "sans",
           "weight": 700
         },
@@ -1737,21 +1749,22 @@
       "textBlocks": [
         {
           "id": "badge",
-          "x": 305,
-          "y": 130,
-          "w": 170,
-          "size": 32,
-          "color": "#ffffff",
+          "x": 298,
+          "y": 172,
+          "w": 150,
+          "size": 24,
+          "color": "#393973",
           "family": "sans",
-          "weight": 700
+          "weight": 700,
+          "align": "center"
         },
         {
           "id": "title",
-          "x": 315,
-          "y": 210,
-          "w": 1200,
-          "size": 50,
-          "color": "#393973",
+          "x": 250,
+          "y": 238,
+          "w": 1560,
+          "size": 58,
+          "color": "#ffffff",
           "family": "sans",
           "weight": 700
         },

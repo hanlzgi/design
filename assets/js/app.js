@@ -99,14 +99,14 @@
 
   function renderText(t) {
     const n = el('div', 'tx f-' + (t.font || 'sans-r'), { left: px(t.x), top: px(t.y), fontSize: px(t.size), color: t.color || '#000' });
-    if (t.w) n.style.width = px(t.w); n.textContent = t.text; return n;
+    if (t.w) n.style.width = px(t.w); if (t.align) n.style.textAlign = t.align; n.textContent = t.text; return n;
   }
   function renderCard(c) {
     const hot = el('div', 'card-hotspot toc-card', { left: px(c.x), top: px(c.y), width: px(c.w), height: px(c.h) });
     const img = el('img', 'toc-card-img'); img.src = c.img + V; img.draggable = false; hot.appendChild(img);
-    hot.appendChild(renderText({ text: c.category, x: c.badge_x - c.x, y: c.badge_y - c.y, size: 18, font: 'sans-sb', color: '#fff' }));
-    hot.appendChild(renderText({ text: c.region, x: c.region_x - c.x, y: c.region_y - c.y, size: 20, font: 'sans-r', color: '#000' }));
-    hot.appendChild(renderText({ text: c.title, x: c.title_x - c.x, y: c.title_y - c.y, size: 44, font: 'sans-sb', color: '#000', w: c.title_w }));
+    hot.appendChild(renderText({ text: c.category, x: 0, y: c.badge_y - c.y, size: 18, font: 'sans-sb', color: '#fff', w: c.w, align: 'center' }));
+    hot.appendChild(renderText({ text: c.region, x: 0, y: c.region_y - c.y, size: 20, font: 'sans-r', color: '#000', w: c.w, align: 'center' }));
+    hot.appendChild(renderText({ text: c.title, x: (c.w - c.title_w) / 2, y: c.title_y - c.y, size: 44, font: 'sans-sb', color: '#000', w: c.title_w, align: 'center' }));
     hot.addEventListener('click', () => { toast('코스 선택: ' + c.title); goId('c1-map'); });
     return hot;
   }
@@ -127,6 +127,8 @@
     let curLink = null;
     const open = (src, link) => { card.src = src + V; curLink = link || null; root.classList.add('map-open'); };
     const hide = () => root.classList.remove('map-open');
+    const xbtn = el('button', 'map-close', { left: px(cr.x + cr.w - 14), top: px(cr.y - 42) }); xbtn.type = 'button'; xbtn.innerHTML = '<svg viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><line x1="6" y1="6" x2="20" y2="20"/><line x1="20" y1="6" x2="6" y2="20"/></svg>';
+    xbtn.addEventListener('click', e => { e.stopPropagation(); hide(); }); dim.appendChild(xbtn);
     dim.addEventListener('click', hide);
     card.addEventListener('click', e => { e.stopPropagation(); if (curLink) goId(curLink); });
     page.mapHotspots.forEach(h => {
@@ -335,6 +337,7 @@
   // ===== 탐방노트 렌더 =====
   let SCRAPS = [];
   const ERASER_SVG = '<svg viewBox="0 0 18 18"><path class="ql-stroke" d="M5 12.5 L12.5 5 L15.5 8 L8 15.5 Z" fill="none"></path><line class="ql-stroke" x1="3" y1="15.5" x2="15.5" y2="15.5"></line></svg>';
+  const FLAG_SVG = '<svg viewBox="0 0 22 26" fill="none"><path d="M5 2.6 V23.4" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/><path d="M5 3.6 H17 l-3.2 4.2 3.2 4.2 H5 Z" fill="#fff"/></svg>';
   const NOTE_ICON_SVG = ' <svg class="note-title-ico" viewBox="0 0 40 40" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 6 h13 l8 8 v19 a2 2 0 0 1-2 2 H10 a2 2 0 0 1-2-2 V8 a2 2 0 0 1 2-2 Z"/><path d="M23 6 v8 h8"/><line x1="14" y1="23" x2="26" y2="23"/><line x1="14" y1="29" x2="23" y2="29"/></svg>';
   const SCRAP_HEAD_SVG = '<svg class="note-scrap-ico" viewBox="0 0 24 24" fill="none" stroke="#5a51bd" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4 h6 v6"/><path d="M20 4 L11 13"/><path d="M18 13 v6 a1 1 0 0 1-1 1 H6 a1 1 0 0 1-1-1 V8 a1 1 0 0 1 1-1 h6"/></svg>';
   function noteToolbarHTML() {
@@ -490,9 +493,8 @@
   function renderFrame(page, root) {
     root.classList.add('framed');
     root.appendChild(el('div', 'frm-panel'));
-    root.appendChild(el('div', 'frm-card frm-titlebar'));
     root.appendChild(el('div', 'frm-card frm-body'));
-    const bd = el('div', 'frm-badge'); bd.appendChild(el('span', 'frm-flag')); root.appendChild(bd);
+    const bd = el('div', 'frm-badge'); const fl = el('span', 'frm-flag'); fl.innerHTML = FLAG_SVG; bd.appendChild(fl); root.appendChild(bd);
     if (page.type === 'prestudy') { const ms = el('div', 'frm-search'); ms.innerHTML = '<svg viewBox="0 0 40 40" fill="none" stroke="#575756" stroke-width="3.4" stroke-linecap="round"><circle cx="17" cy="17" r="10"/><line x1="25" y1="25" x2="33" y2="33"/></svg>'; root.appendChild(ms); }
   }
 
