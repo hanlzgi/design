@@ -127,7 +127,7 @@
     let curLink = null;
     const open = (src, link) => { card.src = src + V; curLink = link || null; root.classList.add('map-open'); };
     const hide = () => root.classList.remove('map-open');
-    const xbtn = el('button', 'map-close', { left: px(cr.x + cr.w - 14), top: px(cr.y - 42) }); xbtn.type = 'button'; xbtn.innerHTML = '<svg viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><line x1="6" y1="6" x2="20" y2="20"/><line x1="20" y1="6" x2="6" y2="20"/></svg>';
+    const xbtn = el('button', 'map-close', { left: px(cr.x + cr.w - 46), top: px(cr.y - 23) }); xbtn.type = 'button'; xbtn.innerHTML = '<svg viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><line x1="6" y1="6" x2="20" y2="20"/><line x1="20" y1="6" x2="6" y2="20"/></svg>';
     xbtn.addEventListener('click', e => { e.stopPropagation(); hide(); }); dim.appendChild(xbtn);
     dim.addEventListener('click', hide);
     card.addEventListener('click', e => { e.stopPropagation(); if (curLink) goId(curLink); });
@@ -495,7 +495,6 @@
     root.appendChild(el('div', 'frm-panel'));
     root.appendChild(el('div', 'frm-card frm-body'));
     const bd = el('div', 'frm-badge'); const fl = el('span', 'frm-flag'); fl.innerHTML = FLAG_SVG; bd.appendChild(fl); root.appendChild(bd);
-    if (page.type === 'prestudy') { const ms = el('div', 'frm-search'); ms.innerHTML = '<svg viewBox="0 0 40 40" fill="none" stroke="#575756" stroke-width="3.4" stroke-linecap="round"><circle cx="17" cy="17" r="10"/><line x1="25" y1="25" x2="33" y2="33"/></svg>'; root.appendChild(ms); }
   }
 
   let _animTimer = 0;
