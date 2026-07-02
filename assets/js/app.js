@@ -168,7 +168,7 @@
       const n = el('div', 'txt-block', {
         left: px(b.x), top: px(b.y), width: px(b.w), fontSize: px(b.size),
         color: b.color || '#1d1d1b', fontFamily: fam[b.family] || 'var(--font-sans)', fontWeight: String(b.weight || 400),
-        textAlign: b.align || 'left', lineHeight: String(b.lineHeight || 1.15)
+        textAlign: b.align || 'left', lineHeight: String(b.lineHeight || 1.5)
       });
       if (b.type === 'section' && val && typeof val === 'object') {
         n.appendChild(el('div', 'sec-bullet'));
