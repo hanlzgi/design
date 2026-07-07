@@ -85,7 +85,7 @@ body {
 .f-sans-sb {
   font-family: var(--font-sans);
   font-weight: 600;
-  font-size: 40px;
+  font-size: 40px !important;
 }
 
 .f-sans-r {
