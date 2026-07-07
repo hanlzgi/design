@@ -27,7 +27,7 @@ window.TEXTBOOK_CONTENT = {
           "badge_x": 679, "badge_y": 300, "region_x": 798, "region_y": 700, "title_x": 762, "title_y": 740, "title_w": 200 },
         { "id": "course3", "x": 1043, "y": 243, "w": 399, "h": 667, "img": "assets/01_title/cards/c3.png", "region": "미국", "title": "하와이 노동자의 나라에서 우방까지",
           "badge_x": 1077, "badge_y": 300, "region_x": 1225, "region_y": 700, "title_x": 1084, "title_y": 740, "title_w": 320 },
-        { "id": "course4", "x": 1441, "y": 243, "w": 399, "h": 667, "img": "assets/01_title/cards/c4.png", "region": "유럽", "title": "대한 제국에서 6·25 전쟁 참전까지",
+        { "id": "course4", "x": 1441, "y": 243, "w": 399, "h": 667, "img": "assets/01_title/cards/c4.png", "region": "유럽", "title": "대한 제국에서\n6·25 전쟁 참전까지",
           "badge_x": 1460, "badge_y": 300, "region_x": 1623, "region_y": 700, "title_x": 1507, "title_y": 740, "title_w": 320 }
       ]
     }
