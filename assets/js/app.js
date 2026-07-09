@@ -12,7 +12,6 @@
 
   let idx = 0;
   const history = [];
-  const scraps = JSON.parse(localStorage.getItem('bohun_scraps') || '[]');
   const textCache = {};
 
   const GLYPH = {
@@ -36,8 +35,19 @@
     settings: '<svg viewBox="0 0 40 40" fill="none" stroke="#fff" stroke-width="2.5" stroke-linejoin="round"><circle cx="20" cy="20" r="4.5"/><path d="M20 7l1.6 3.4 3.7-.6 1 3.6 3.4 1.6-.6 3.7L33 20l-2.6 2.8.6 3.7-3.4 1.6-1 3.6-3.7-.6L20 33l-1.6-3.4-3.7.6-1-3.6-3.4-1.6.6-3.7L7 20l2.6-2.8-.6-3.7 3.4-1.6 1-3.6 3.7.6z"/></svg>'
   }; const el = (t, c, css) => { const n = document.createElement(t); if (c) n.className = c; if (css) Object.assign(n.style, css); return n; };
   const px = v => v + 'px';
-  const V = '?v=' + Date.now();
+  // 고정 캐시 버전 — 에셋(사진/SVG/아이콘) 교체 시 아래 문자열을 수동으로 올릴 것 (브라우저 캐시 활용)
+  const V = '?v=20260709';
   const pad3 = n => String(n).padStart(3, '0');
+
+  // aspect-ratio 미지원 구형 브라우저(Chromium<88 등) 폴백 — stageWrap 크기를 JS로 계산
+  const AR_OK = window.CSS && CSS.supports && CSS.supports('aspect-ratio', '16 / 9');
+  function sizeWrap() {
+    if (AR_OK) return;
+    const W = window.innerWidth, H = window.innerHeight;
+    const w = Math.min(W, H * 16 / 9);
+    wrap.style.width = w + 'px';
+    wrap.style.height = (w * 9 / 16) + 'px';
+  }
 
   function scaleF() { return wrap.clientWidth / STAGE_W; }
   function layout() {
@@ -48,7 +58,7 @@
       h.style.left = (x * s) + 'px'; h.style.top = (y * s) + 'px'; h.style.width = d + 'px'; h.style.height = d + 'px';
     });
   }
-  window.addEventListener('resize', () => { layout(); checkPortrait(); });
+  window.addEventListener('resize', () => { sizeWrap(); layout(); checkPortrait(); });
 
   let tT;
   function toast(msg) { toastEl.textContent = msg; toastEl.classList.add('show'); clearTimeout(tT); tT = setTimeout(() => toastEl.classList.remove('show'), 2200); }
@@ -88,13 +98,30 @@
       case 'back': if (history.length) { idx = history.pop(); ensureContent(pad3(idx + 1)).then(render); } else go(Math.max(0, idx - 1), false); break;
       case 'map': if (p.mapPin && p.course) { goId(`c${p.course}-map`); } else { toast('이 페이지에서는 지도 이동이 비활성화입니다'); } break;
       case 'settings': toast('설정 (준비 중)'); break;
-      case 'share': navigator.clipboard?.writeText(location.href.split('#')[0] + '#' + p.id).catch(() => { }); toast('링크가 복사되었습니다'); break;
+      case 'share': copyText(location.href.split('#')[0] + '#' + p.id); break;
       case 'scrap': captureScrap(p); break;
       case 'note': goId('note'); break;
       case 'search': openSearch(); break;
       case 'pdf': { const l = document.createElement('a'); l.href = 'content/download.pdf'; l.download = '보훈교재.pdf'; document.body.appendChild(l); l.click(); l.remove(); toast('PDF 다운로드를 시작합니다'); break; }
       case 'fullscreen': if (!document.fullscreenElement) { document.documentElement.requestFullscreen?.(); } else { document.exitFullscreen?.(); } break;
     }
+  }
+
+  // 클립보드 복사 — 비보안 컨텍스트(http LAN 등)에서는 execCommand 폴백, 실패 시 실패 토스트
+  function copyText(txt) {
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(txt).then(() => toast('링크가 복사되었습니다')).catch(() => legacyCopy(txt));
+    } else legacyCopy(txt);
+  }
+  function legacyCopy(txt) {
+    try {
+      const ta = document.createElement('textarea');
+      ta.value = txt; ta.setAttribute('readonly', '');
+      ta.style.position = 'fixed'; ta.style.left = '-9999px'; ta.style.top = '0';
+      document.body.appendChild(ta); ta.select(); ta.setSelectionRange(0, txt.length);
+      const ok = document.execCommand('copy'); ta.remove();
+      toast(ok ? '링크가 복사되었습니다' : '복사에 실패했습니다 — 주소창의 주소를 이용하세요');
+    } catch (e) { toast('복사에 실패했습니다 — 주소창의 주소를 이용하세요'); }
   }
 
   function renderText(t) {
@@ -104,7 +131,7 @@
   function renderCard(c) {
     const hot = el('div', 'card-hotspot toc-card', { left: px(c.x), top: px(c.y), width: px(c.w), height: px(c.h) });
     const img = el('img', 'toc-card-img'); img.src = c.img + V; img.draggable = false; hot.appendChild(img);
-    hot.appendChild(renderText({ text: c.category, x: 0, y: c.badge_y - c.y, size: 18, font: 'sans-sb', color: '#fff', w: c.w, align: 'center' }));
+    if (c.category) hot.appendChild(renderText({ text: c.category, x: 0, y: c.badge_y - c.y, size: 18, font: 'sans-sb', color: '#fff', w: c.w, align: 'center' }));
     hot.appendChild(renderText({ text: c.region, x: 0, y: c.region_y - c.y, size: 20, font: 'sans-r', color: '#000', w: c.w, align: 'center' }));
     hot.appendChild(renderText({ text: c.title, x: (c.w - c.title_w) / 2, y: c.title_y - c.y, size: 44, font: 'sans-sb', color: '#000', w: c.title_w, align: 'center' }));
     hot.addEventListener('click', () => { toast('코스 선택: ' + c.title); goId('c1-map'); });
@@ -257,6 +284,7 @@
       im.src = 'photos/' + pd.display[0] + V; im.addEventListener('error', () => { im.style.display = 'none'; });
       if (page.photoSlot.zoom) { im.style.cursor = 'zoom-in'; im.addEventListener('click', () => { zimg.src = 'photos/' + pd.display[0] + V; zoom.classList.add('show'); }); }
       root.appendChild(im);
+      if (q.photoCaption) { const cap = el('div', 'quiz-photocap', { left: px(rc.x), top: px(rc.y + rc.h + 10), width: px(rc.w) }); cap.textContent = q.photoCaption; root.appendChild(cap); }
     }
     // 정답 팝업: 딤 레이어 + ansN.svg + 텍스트 오버레이
     const ans = el('div', 'quiz-ans');
@@ -289,7 +317,7 @@
       <div class="ph-sub">${page.available ? '소스 보유 — 콘텐츠 작업 예정' : '세부 페이지 구축 예정'}</div><div class="ph-tag">${page.id}</div>`;
     root.appendChild(ph);
   }
-  const typeLabel = t => ({ title: '타이틀', toc: '목차', map: '지도', 'map-popup': '지도 팝업', prestudy: '사전 학습', intro: '개론', reading: '읽기자료', quiz: '퀴즈', note: '탐방노트' }[t] || t);
+  const typeLabel = t => ({ title: '타이틀', toc: '목차', map: '지도', prestudy: '사전 학습', intro: '개론', reading: '읽기자료', quiz: '퀴즈', note: '탐방노트' }[t] || t);
 
   // ===== 탐방노트 저장소 (IndexedDB · 로그인 불필요, 브라우저 영속) =====
   const NDB = 'bohun_note'; let _ndb = null;
@@ -575,18 +603,26 @@
 
   function checkPortrait(){ document.body.classList.toggle('is-portrait', window.innerHeight>window.innerWidth); }
 
+  // 오버레이(검색/갤러리/확대/퀴즈 정답·오답/지도 팝업) 열림 여부 — 열려 있으면 휠·방향키 페이지 이동 차단
+  function overlayOpen(){
+    if (sov.classList.contains('open')) return true;
+    return !!stage.querySelector('.gal-dim.show, .zoom-dim.show, .quiz-zoom.show, .quiz-ans.show, .quiz-wrong.show, .page.map-open');
+  }
+
   document.getElementById('prev').addEventListener('click',()=>go(idx-1));
   document.getElementById('next').addEventListener('click',()=>go(idx+1));
   document.addEventListener('keydown',e=>{
     if(sov.classList.contains('open')){ if(e.key==='Escape')closeSearch(); return; }
     const ae=document.activeElement;
     if(ae && (ae.isContentEditable || ae.tagName==='INPUT' || ae.tagName==='TEXTAREA')) return;
+    if(overlayOpen()) return;
     if(e.key==='ArrowLeft')go(idx-1); else if(e.key==='ArrowRight')go(idx+1);
   });
 
   let _wheelLock=false;
   window.addEventListener('wheel',e=>{
     const p=curPage(); if(p && p.type==='note') return;
+    if(overlayOpen()) return;
     if(Math.abs(e.deltaY)<8) return;
     if(_wheelLock) return; _wheelLock=true; setTimeout(()=>{_wheelLock=false;},650);
     if(e.deltaY>0) go(idx+1); else go(idx-1);
@@ -594,7 +630,7 @@
 
   async function ensureContent(num){
     if(num in textCache) return textCache[num];
-    try{ const r=await fetch('content/text/'+num+'.json'); textCache[num]=r.ok?await r.json():null; }
+    try{ const r=await fetch('content/text/'+num+'.json',{cache:'no-cache'}); textCache[num]=r.ok?await r.json():null; }
     catch(e){ textCache[num]=null; }
     return textCache[num];
   }
@@ -602,8 +638,8 @@
   async function boot(){
     try{
       const [sm,ph]=await Promise.all([
-        fetch('content/sitemap.json').then(r=>r.json()),
-        fetch('content/photos.json').then(r=>r.ok?r.json():{}).catch(()=>({}))
+        fetch('content/sitemap.json',{cache:'no-cache'}).then(r=>r.json()),
+        fetch('content/photos.json',{cache:'no-cache'}).then(r=>r.ok?r.json():{}).catch(()=>({}))
       ]);
       SM=sm; PAGES=sm.pages; STAGE_W=sm.stage.w; STAGE_H=sm.stage.h; R=(sm.chrome&&sm.chrome.iconR)||34; PHOTOS=ph;
     }catch(e){
@@ -611,7 +647,7 @@
       stage.innerHTML='<div style="padding:60px 40px;font-size:24px;line-height:1.6;color:#1d1d1b">데이터를 불러오지 못했습니다.<br>이 교재는 로컬 서버로 실행해야 합니다 —<br>폴더의 <b>start.bat</b> 더블클릭 (또는 <code>python -m http.server</code> 후 localhost:8000).</div>';
       return;
     }
-    buildChrome(); checkPortrait();
+    sizeWrap(); buildChrome(); checkPortrait();
     const hash=location.hash.replace('#',''); const hi=PAGES.findIndex(p=>p.id===hash);
     idx=hi>=0?hi:0; await ensureContent(pad3(idx+1)); render();
   }
