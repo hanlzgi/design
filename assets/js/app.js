@@ -7,7 +7,8 @@
   const wrap = document.getElementById('stageWrap');
   const stage = document.getElementById('stage');
   const chrome = document.getElementById('chrome');
-  const pagerPos = document.getElementById('pagerPos');
+  const pagerInput = document.getElementById('pagerInput');
+  const pagerTotal = document.getElementById('pagerTotal');
   const toastEl = document.getElementById('toast');
 
   let idx = 0;
@@ -136,7 +137,7 @@
     if (c.category) hot.appendChild(renderText({ text: c.category, x: 0, y: c.badge_y - c.y, size: 18, font: 'sans-sb', color: '#fff', w: c.w, align: 'center' }));
     hot.appendChild(renderText({ text: c.region, x: 0, y: c.region_y - c.y, size: 20, font: 'sans-r', color: '#000', w: c.w, align: 'center' }));
     hot.appendChild(renderText({ text: c.title, x: (c.w - c.title_w) / 2, y: c.title_y - c.y, size: 44, font: 'sans-sb', color: '#000', w: c.title_w, align: 'center' }));
-    hot.addEventListener('click', () => { toast('코스 선택: ' + c.title); goId('c1-map'); });
+    hot.addEventListener('click', () => { const m = /^course(\d)$/.exec(c.id || ''); goId(m ? 'c' + m[1] + '-map' : 'c1-map'); });
     return hot;
   }
   function renderEditable(page, root) {
@@ -587,7 +588,7 @@
     const pin=chrome.querySelector('.hot[data-action="map"]');
     if(pin){ pin.disabled = !(page.mapPin && page.course); }
     const _pg=document.querySelector('.pager'); if(_pg) _pg.style.display=(page.type==='note')?'none':'';
-    pagerPos.textContent=(idx+1)+' / '+PAGES.length;
+    pagerInput.value=(idx+1); pagerTotal.textContent=' / '+PAGES.length;
     layout();
   }
 
@@ -679,12 +680,10 @@
     const pid = curPage().id;
     tocDim.querySelectorAll('.cur').forEach(n => n.classList.remove('cur'));
     tocDim.querySelectorAll('.toc-course.open').forEach(o => o.classList.remove('open'));
-    const m = pid.match(/^c(\d)-/);
-    if (m) { const sec = tocDim.querySelectorAll('.toc-course')[+m[1] - 1]; if (sec) sec.classList.add('open'); }
     const hit = tocDim.querySelector('[data-pid="' + pid + '"]');
     if (hit) { hit.classList.add('cur'); }
+    const tb = tocDim.querySelector('.toc-body'); if (tb) tb.scrollTop = 0;
     tocDim.classList.add('show');
-    const c = tocDim.querySelector('.cur'); if (c && c.scrollIntoView) c.scrollIntoView({ block: 'nearest' });
   }
   function closeToc() { if (tocDim) tocDim.classList.remove('show'); }
 
@@ -696,6 +695,16 @@
 
   document.getElementById('prev').addEventListener('click',()=>go(idx-1));
   document.getElementById('next').addEventListener('click',()=>go(idx+1));
+  // pager 현재 페이지 직접 입력 — Enter/blur 시 이동, 범위 밖·비숫자는 원복
+  pagerInput.addEventListener('focus',()=>{ pagerInput.select(); });
+  pagerInput.addEventListener('input',()=>{ pagerInput.value=pagerInput.value.replace(/[^0-9]/g,''); });
+  function pagerJump(){
+    const n=parseInt(pagerInput.value,10);
+    if(!isNaN(n) && n>=1 && n<=PAGES.length && n!==idx+1) go(n-1);
+    else pagerInput.value=(idx+1);
+  }
+  pagerInput.addEventListener('keydown',e=>{ if(e.key==='Enter'){ e.preventDefault(); pagerJump(); pagerInput.blur(); } else if(e.key==='Escape'){ pagerInput.value=(idx+1); pagerInput.blur(); } e.stopPropagation(); });
+  pagerInput.addEventListener('blur',pagerJump);
   document.addEventListener('keydown',e=>{
     if(sov.classList.contains('open')){ if(e.key==='Escape')closeSearch(); return; }
     if(tocDim && tocDim.classList.contains('show')){ if(e.key==='Escape') closeToc(); return; }

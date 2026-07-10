@@ -6,7 +6,7 @@
   <title>보훈 교재</title>
   <link rel="stylesheet" href="assets/vendor/pretendard/pretendard.css" />
   <link rel="stylesheet" href="tokens/design-tokens.css" />
-  <link rel="stylesheet" href="assets/css/app.css?v=20260710" />
+  <link rel="stylesheet" href="assets/css/app.css?v=20260710c" />
   <link rel="stylesheet" href="assets/vendor/quill/quill.snow.css" />
 </head>
 <body>
@@ -17,7 +17,7 @@
 
       <div class="pager">
         <button id="prev" aria-label="이전">‹</button>
-        <span class="pos" id="pagerPos">1 / 1</span>
+        <span class="pos"><input id="pagerInput" class="pg-in" type="text" inputmode="numeric" maxlength="3" aria-label="페이지 번호 입력" /><span id="pagerTotal"> / 1</span></span>
         <button id="next" aria-label="다음">›</button>
       </div>
     </div>
@@ -43,6 +43,6 @@
   <script src="assets/vendor/html2canvas.min.js"></script>
   <script src="assets/vendor/html2pdf.bundle.min.js"></script>
   <script src="content/01_title.js"></script>
-  <script src="assets/js/app.js?v=20260710"></script>
+  <script src="assets/js/app.js?v=20260710c"></script>
 </body>
 </html>
