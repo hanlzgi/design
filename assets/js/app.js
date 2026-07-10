@@ -16,7 +16,7 @@
 
   const GLYPH = {
     link: '⧉', share: '⤴', scrap: '\u{1F516}', note: '\u{1F4D3}', search: '\u{1F50D}',
-    pdf: '⬇', fullscreen: '⛶', back: '←', portal: '\u{1F310}', map: '\u{1F4CD}', settings: '⚙'
+    pdf: '⬇', fullscreen: '⛶', back: '←', portal: '\u{1F310}', map: '\u{1F4CD}', settings: '⚙', toc: '☰'
   };
 
   const HOME_SVG = '<svg viewBox="0 0 40 40" fill="none"><path d="M20 7 L34 19 H30 V33 H24 V24 H16 V33 H10 V19 H6 Z" fill="#fff"/></svg>';
@@ -32,7 +32,8 @@
     back: '<svg viewBox="0 0 40 40" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12l-8 8 8 8"/><path d="M14 20h13"/></svg>',
     portal: '<svg viewBox="0 0 40 40" fill="none" stroke="#fff" stroke-width="2.5"><circle cx="20" cy="20" r="12"/><ellipse cx="20" cy="20" rx="5" ry="12"/><line x1="8" y1="20" x2="32" y2="20"/><line x1="11" y1="13" x2="29" y2="13"/><line x1="11" y1="27" x2="29" y2="27"/></svg>',
     map: '<svg viewBox="0 0 40 40" fill="none" stroke="#fff" stroke-width="2.8" stroke-linejoin="round"><path d="M20 9c4.4 0 8 3.6 8 8 0 5.5-8 14-8 14s-8-8.5-8-14c0-4.4 3.6-8 8-8z"/><circle cx="20" cy="17" r="3.2"/></svg>',
-    settings: '<svg viewBox="0 0 40 40" fill="none" stroke="#fff" stroke-width="2.5" stroke-linejoin="round"><circle cx="20" cy="20" r="4.5"/><path d="M20 7l1.6 3.4 3.7-.6 1 3.6 3.4 1.6-.6 3.7L33 20l-2.6 2.8.6 3.7-3.4 1.6-1 3.6-3.7-.6L20 33l-1.6-3.4-3.7.6-1-3.6-3.4-1.6.6-3.7L7 20l2.6-2.8-.6-3.7 3.4-1.6 1-3.6 3.7.6z"/></svg>'
+    settings: '<svg viewBox="0 0 40 40" fill="none" stroke="#fff" stroke-width="2.5" stroke-linejoin="round"><circle cx="20" cy="20" r="4.5"/><path d="M20 7l1.6 3.4 3.7-.6 1 3.6 3.4 1.6-.6 3.7L33 20l-2.6 2.8.6 3.7-3.4 1.6-1 3.6-3.7-.6L20 33l-1.6-3.4-3.7.6-1-3.6-3.4-1.6.6-3.7L7 20l2.6-2.8-.6-3.7 3.4-1.6 1-3.6 3.7.6z"/></svg>',
+    toc: '<svg viewBox="0 0 40 40" fill="none" stroke="#fff" stroke-width="2.8" stroke-linecap="round"><line x1="14" y1="12" x2="31" y2="12"/><line x1="14" y1="20" x2="31" y2="20"/><line x1="14" y1="28" x2="31" y2="28"/><circle cx="9" cy="12" r="1.8" fill="#fff" stroke="none"/><circle cx="9" cy="20" r="1.8" fill="#fff" stroke="none"/><circle cx="9" cy="28" r="1.8" fill="#fff" stroke="none"/></svg>'
   }; const el = (t, c, css) => { const n = document.createElement(t); if (c) n.className = c; if (css) Object.assign(n.style, css); return n; };
   const px = v => v + 'px';
   // 고정 캐시 버전 — 에셋(사진/SVG/아이콘) 교체 시 아래 문자열을 수동으로 올릴 것 (브라우저 캐시 활용)
@@ -83,6 +84,7 @@
   const curPage = () => PAGES[idx];
   async function go(i, push = true) {
     if (i < 0 || i >= PAGES.length || i === idx) return;
+    if (typeof closeToc === 'function') closeToc();
     const _dir = i > idx ? 1 : -1;
     if (push) history.push(idx);
     idx = i; await ensureContent(pad3(idx + 1)); render(_dir);
@@ -97,7 +99,7 @@
       case 'portal': window.open(cfg.url, '_blank'); break;
       case 'back': if (history.length) { idx = history.pop(); ensureContent(pad3(idx + 1)).then(render); } else go(Math.max(0, idx - 1), false); break;
       case 'map': if (p.mapPin && p.course) { goId(`c${p.course}-map`); } else { toast('이 페이지에서는 지도 이동이 비활성화입니다'); } break;
-      case 'settings': toast('설정 (준비 중)'); break;
+      case 'toc': openToc(); break;
       case 'share': copyText(location.href.split('#')[0] + '#' + p.id); break;
       case 'scrap': captureScrap(p); break;
       case 'note': goId('note'); break;
@@ -522,7 +524,7 @@
     root.classList.add('framed');
     root.appendChild(el('div', 'frm-panel'));
     root.appendChild(el('div', 'frm-card frm-body'));
-    const bd = el('div', 'frm-badge'); const fl = el('span', 'frm-flag'); fl.innerHTML = FLAG_SVG; bd.appendChild(fl); root.appendChild(bd);
+    const bd = el('div', 'frm-badge'); if (page.badgeTop != null) { bd.style.top = px(page.badgeTop); } const fl = el('span', 'frm-flag'); fl.innerHTML = FLAG_SVG; bd.appendChild(fl); root.appendChild(bd);
   }
 
   let _animTimer = 0;
@@ -603,16 +605,100 @@
 
   function checkPortrait(){ document.body.classList.toggle('is-portrait', window.innerHeight>window.innerWidth); }
 
+  // ===== 목차 팝업 — top '목차' 버튼. 코스 헤더→map, 사전조사→prestudy, 그룹→개론, 세부→읽기자료 =====
+  const TOC_DATA = [
+    { num: '01', tag: '[독립]', region: '중국', name: '대한민국 임시 정부의 길', map: 'c1-map', pre: 'c1-prestudy', groups: [
+      { label: '상하이 시기', link: 'c1-intro1', items: [['상하이 청사', 'c1-read1'], ['홍커우 공원', 'c1-read2']] },
+      { label: '이동 시기', link: 'c1-intro2', items: [['자싱 김구 피난처', 'c1-read3'], ['자싱 임시 정부 요인 거주지', 'c1-read4'], ['항저우 청사', 'c1-read5'], ['창사 활동 구지 기념관', 'c1-read6'], ['류저우 활동 진열관(낙군사)', 'c1-read7']] },
+      { label: '충칭 시기', link: 'c1-intro3', items: [['한국광복군 총사령부', 'c1-read8'], ['충칭 연화지 청사', 'c1-read9'], ['한국광복군 제2지대 OSS 훈련지', 'c1-read10']] }
+    ] },
+    { num: '02', tag: '[독립]', region: '중국/러시아', name: '항일 무장 투쟁의 길', map: 'c2-map', pre: 'c2-prestudy', groups: [
+      { label: '안중근 의거', link: 'c2-intro1', items: [['안중근 단지동맹비', 'c2-read1'], ['하얼빈역 및 안중근의사기념관', 'c2-read2'], ['여순관동지방법원', 'c2-read3'], ['여순 일아감옥 구지', 'c2-read4']] },
+      { label: '독립군 양성', link: 'c2-intro2', items: [['추가가 신흥강습소 터', 'c2-read5'], ['고산자 신흥무관학교 터', 'c2-read6'], ['합니하 신흥무관학교 터', 'c2-read7']] },
+      { label: '봉오동 전투와 청산리 대첩', link: 'c2-intro3', items: [['봉오동전투 전적비', 'c2-read8'], ['청산리항일대첩기념비', 'c2-read9'], ['한중우의공원', 'c2-read10']] }
+    ] },
+    { num: '03', tag: '[독립/호국]', region: '미국', name: '하와이 노동자의 나라에서 우방까지', map: 'c3-map', pre: 'c3-prestudy', groups: [
+      { label: '미국 이주 초기(정착)', link: 'c3-intro1', items: [['대한인국민회 하와이지방총본부', 'c3-read1'], ['아후이마누 대조선독립군단 병영 터', 'c3-read2']] },
+      { label: '독립운동 지원(자강)', link: 'c3-intro2', items: [['LA 대한인국민회 총회관 기념관', 'c3-read3'], ['LA 흥사단 본부 건물', 'c3-read4'], ['샌프란시스코 대한인국민회 총회관', 'c3-read5'], ['윌로우스 비행가양성소', 'c3-read6'], ['필라델피아 서재필 기념관', 'c3-read7'], ['뉴욕한인교회', 'c3-read8']] },
+      { label: '6·25 전쟁 참전(우방)', link: 'c3-intro3', items: [['레인 빅토리호', 'c3-read9'], ['태평양 국립묘지 한국전 참전용사 헌정 기념석', 'c3-read10'], ['워싱턴 D.C. 한국전 참전용사 기념공원', 'c3-read11']] }
+    ] },
+    { num: '04', tag: '[독립/호국]', region: '유럽', name: '대한제국에서 6·25 전쟁 참전까지', map: 'c4-map', pre: 'c4-prestudy', groups: [
+      { label: '헤이그 특사', link: 'c4-intro1', items: [['런던 이한응 순국지', 'c4-read1'], ['헤이그 이준열사 순국지(기념관)', 'c4-read2'], ['제2회 만국 평화 회의 개최지(빈넨호프 왕궁 기사홀)', 'c4-read3']] },
+      { label: '대한민국 임시 정부 외교 활동', link: 'c4-intro2', items: [['브뤼셀 만국 평화 대회 개최지', 'c4-read4'], ['대한민국 임시 정부 파리위원부', 'c4-read5']] },
+      { label: '6·25 전쟁 참전', link: 'c4-intro3', items: [['룩셈부르크 국립 군사박물관', 'c4-read6'], ['벨기에 국립대성심성당', 'c4-read7'], ['파리 한국전 참전비', 'c4-read8'], ['런던 한국전 참전기념비', 'c4-read9']] }
+    ] }
+  ];
+
+  let tocDim = null;
+  function tocGo(id) { closeToc(); goId(id); }
+  function buildToc() {
+    tocDim = el('div', 'toc-dim');
+    tocDim.addEventListener('click', e => { if (e.target === tocDim) closeToc(); });
+    const panel = el('aside', 'toc-panel');
+    const head = el('div', 'toc-head');
+    const ht = el('span', 'toc-title'); ht.textContent = '목차'; head.appendChild(ht);
+    const xb = el('button', 'toc-close'); xb.type = 'button'; xb.setAttribute('aria-label', '목차 닫기');
+    xb.innerHTML = '<svg viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><line x1="6" y1="6" x2="20" y2="20"/><line x1="20" y1="6" x2="6" y2="20"/></svg>';
+    xb.addEventListener('click', closeToc); head.appendChild(xb); panel.appendChild(head);
+    const body = el('div', 'toc-body');
+    TOC_DATA.forEach(course => {
+      const sec = el('section', 'toc-course');
+      const row = el('div', 'toc-crow');
+      const numb = el('span', 'toc-num'); numb.textContent = course.num;
+      const tt = el('button', 'toc-cname'); tt.type = 'button'; tt.dataset.pid = course.map;
+      const sm = document.createElement('small'); sm.textContent = course.tag + ' (' + course.region + ')';
+      tt.appendChild(sm); tt.appendChild(document.createTextNode(course.name));
+      tt.addEventListener('click', () => tocGo(course.map));
+      const cv = el('button', 'toc-chev'); cv.type = 'button'; cv.setAttribute('aria-label', '하위 목차 펼치기');
+      cv.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>';
+      cv.addEventListener('click', () => {
+        const was = sec.classList.contains('open');
+        body.querySelectorAll('.toc-course.open').forEach(o => o.classList.remove('open'));
+        if (!was) sec.classList.add('open');
+      });
+      row.appendChild(numb); row.appendChild(tt); row.appendChild(cv); sec.appendChild(row);
+      const dw = el('div', 'toc-drawer');
+      const pre = el('button', 'toc-item toc-pre'); pre.type = 'button'; pre.textContent = '사전조사'; pre.dataset.pid = course.pre;
+      pre.addEventListener('click', () => tocGo(course.pre)); dw.appendChild(pre);
+      let no = 0;
+      course.groups.forEach(g => {
+        const gh = el('button', 'toc-group'); gh.type = 'button'; gh.textContent = g.label; gh.dataset.pid = g.link;
+        gh.addEventListener('click', () => tocGo(g.link)); dw.appendChild(gh);
+        g.items.forEach(it => {
+          const li = el('button', 'toc-item'); li.type = 'button'; li.dataset.pid = it[1];
+          li.textContent = String.fromCharCode(0x2460 + no++) + ' ' + it[0];
+          li.addEventListener('click', () => tocGo(it[1])); dw.appendChild(li);
+        });
+      });
+      sec.appendChild(dw); body.appendChild(sec);
+    });
+    panel.appendChild(body); tocDim.appendChild(panel);
+  }
+  function openToc() {
+    if (!tocDim) { buildToc(); stage.appendChild(tocDim); }
+    const pid = curPage().id;
+    tocDim.querySelectorAll('.cur').forEach(n => n.classList.remove('cur'));
+    tocDim.querySelectorAll('.toc-course.open').forEach(o => o.classList.remove('open'));
+    const m = pid.match(/^c(\d)-/);
+    if (m) { const sec = tocDim.querySelectorAll('.toc-course')[+m[1] - 1]; if (sec) sec.classList.add('open'); }
+    const hit = tocDim.querySelector('[data-pid="' + pid + '"]');
+    if (hit) { hit.classList.add('cur'); }
+    tocDim.classList.add('show');
+    const c = tocDim.querySelector('.cur'); if (c && c.scrollIntoView) c.scrollIntoView({ block: 'nearest' });
+  }
+  function closeToc() { if (tocDim) tocDim.classList.remove('show'); }
+
   // 오버레이(검색/갤러리/확대/퀴즈 정답·오답/지도 팝업) 열림 여부 — 열려 있으면 휠·방향키 페이지 이동 차단
   function overlayOpen(){
     if (sov.classList.contains('open')) return true;
-    return !!stage.querySelector('.gal-dim.show, .zoom-dim.show, .quiz-zoom.show, .quiz-ans.show, .quiz-wrong.show, .page.map-open');
+    return !!stage.querySelector('.gal-dim.show, .zoom-dim.show, .quiz-zoom.show, .quiz-ans.show, .quiz-wrong.show, .page.map-open, .toc-dim.show');
   }
 
   document.getElementById('prev').addEventListener('click',()=>go(idx-1));
   document.getElementById('next').addEventListener('click',()=>go(idx+1));
   document.addEventListener('keydown',e=>{
     if(sov.classList.contains('open')){ if(e.key==='Escape')closeSearch(); return; }
+    if(tocDim && tocDim.classList.contains('show')){ if(e.key==='Escape') closeToc(); return; }
     const ae=document.activeElement;
     if(ae && (ae.isContentEditable || ae.tagName==='INPUT' || ae.tagName==='TEXTAREA')) return;
     if(overlayOpen()) return;
