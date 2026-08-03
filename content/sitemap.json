@@ -1314,7 +1314,7 @@
           "id": "caption",
           "x": 1200,
           "y": 900,
-          "w": 404,
+          "w": 425,
           "size": 20,
           "color": "#333333",
           "family": "sans",
@@ -1355,16 +1355,6 @@
           },
           "key": "add2",
           "place": "up"
-        },
-        {
-          "type": "vr",
-          "rect": {
-            "x": 1640,
-            "y": 825,
-            "w": 76,
-            "h": 136
-          },
-          "key": "vr"
         },
         {
           "type": "gmap",
@@ -1525,6 +1515,119 @@
           "id": "s1",
           "type": "section",
           "x": 315,
+          "y": 395,
+          "w": 745,
+          "size": 25,
+          "color": "#1d1d1b",
+          "family": "sans",
+          "weight": 400,
+          "lineHeight": 1.5
+        },
+        {
+          "id": "s2",
+          "type": "section",
+          "x": 315,
+          "y": 670,
+          "w": 745,
+          "size": 25,
+          "color": "#1d1d1b",
+          "family": "sans",
+          "weight": 400,
+          "lineHeight": 1.5
+        },
+        {
+          "id": "caption",
+          "x": 1125,
+          "y": 900,
+          "w": 603,
+          "size": 20,
+          "color": "#333333",
+          "family": "sans",
+          "weight": 400,
+          "align": "center"
+        }
+      ],
+      "photoSlots": [
+        {
+          "rect": {
+            "x": 1125,
+            "y": 434,
+            "w": 603,
+            "h": 458
+          },
+          "radius": 20
+        }
+      ],
+      "buttons": [
+        {
+          "type": "add",
+          "rect": {
+            "x": 315,
+            "y": 905,
+            "w": 118,
+            "h": 39
+          },
+          "key": "add1",
+          "place": "up"
+        },
+        {
+          "type": "add",
+          "rect": {
+            "x": 445,
+            "y": 905,
+            "w": 118,
+            "h": 39
+          },
+          "key": "add2",
+          "place": "up"
+        },
+        {
+          "type": "gmap",
+          "rect": {
+            "x": 451,
+            "y": 156,
+            "w": 55,
+            "h": 55
+          },
+          "key": "gmap"
+        }
+      ]
+    },
+    {
+      "id": "c1-read9",
+      "title": "1코스 읽기자료 9",
+      "type": "reading",
+      "course": 1,
+      "available": true,
+      "render": "image",
+      "mapPin": true,
+      "hasText": true,
+      "textBlocks": [
+        {
+          "id": "badge",
+          "x": 299,
+          "y": 166,
+          "w": 140,
+          "size": 24,
+          "color": "#393973",
+          "family": "sans",
+          "weight": 700,
+          "align": "center"
+        },
+        {
+          "id": "title",
+          "x": 250,
+          "y": 225,
+          "w": 1560,
+          "size": 58,
+          "color": "#ffffff",
+          "family": "sans",
+          "weight": 700
+        },
+        {
+          "id": "s1",
+          "type": "section",
+          "x": 315,
           "y": 390,
           "w": 720,
           "size": 25,
@@ -1600,130 +1703,6 @@
             "h": 136
           },
           "key": "vr"
-        },
-        {
-          "type": "gmap",
-          "rect": {
-            "x": 451,
-            "y": 156,
-            "w": 55,
-            "h": 55
-          },
-          "key": "gmap"
-        }
-      ]
-    },
-    {
-      "id": "c1-read9",
-      "title": "1코스 읽기자료 9",
-      "type": "reading",
-      "course": 1,
-      "available": true,
-      "render": "image",
-      "mapPin": true,
-      "hasText": true,
-      "textBlocks": [
-        {
-          "id": "badge",
-          "x": 299,
-          "y": 166,
-          "w": 140,
-          "size": 24,
-          "color": "#393973",
-          "family": "sans",
-          "weight": 700,
-          "align": "center"
-        },
-        {
-          "id": "title",
-          "x": 250,
-          "y": 225,
-          "w": 1560,
-          "size": 58,
-          "color": "#ffffff",
-          "family": "sans",
-          "weight": 700
-        },
-        {
-          "id": "s1",
-          "type": "section",
-          "x": 315,
-          "y": 395,
-          "w": 745,
-          "size": 25,
-          "color": "#1d1d1b",
-          "family": "sans",
-          "weight": 400,
-          "lineHeight": 1.5
-        },
-        {
-          "id": "s2",
-          "type": "section",
-          "x": 315,
-          "y": 670,
-          "w": 745,
-          "size": 25,
-          "color": "#1d1d1b",
-          "family": "sans",
-          "weight": 400,
-          "lineHeight": 1.5
-        },
-        {
-          "id": "caption",
-          "x": 1125,
-          "y": 900,
-          "w": 603,
-          "size": 20,
-          "color": "#333333",
-          "family": "sans",
-          "weight": 400,
-          "align": "center"
-        }
-      ],
-      "photoSlots": [
-        {
-          "rect": {
-            "x": 1125,
-            "y": 434,
-            "w": 603,
-            "h": 458
-          },
-          "radius": 20
-        }
-      ],
-      "buttons": [
-        {
-          "type": "add",
-          "rect": {
-            "x": 315,
-            "y": 905,
-            "w": 118,
-            "h": 39
-          },
-          "key": "add1",
-          "place": "up"
-        },
-        {
-          "type": "add",
-          "rect": {
-            "x": 445,
-            "y": 905,
-            "w": 118,
-            "h": 39
-          },
-          "key": "add2",
-          "place": "up"
-        },
-        {
-          "type": "add",
-          "rect": {
-            "x": 575,
-            "y": 905,
-            "w": 118,
-            "h": 39
-          },
-          "key": "add3",
-          "place": "up"
         },
         {
           "type": "gmap",
@@ -3089,7 +3068,7 @@
           "id": "s2",
           "type": "section",
           "x": 315,
-          "y": 670,
+          "y": 630,
           "w": 700,
           "size": 25,
           "color": "#1d1d1b",
@@ -3213,7 +3192,7 @@
           "id": "s2",
           "type": "section",
           "x": 315,
-          "y": 630,
+          "y": 670,
           "w": 700,
           "size": 25,
           "color": "#1d1d1b",
@@ -3696,7 +3675,7 @@
           "id": "s2",
           "type": "section",
           "x": 1000,
-          "y": 660,
+          "y": 670,
           "w": 720,
           "size": 25,
           "color": "#1d1d1b",
@@ -4956,7 +4935,7 @@
           "type": "section",
           "x": 315,
           "y": 395,
-          "w": 700,
+          "w": 710,
           "size": 25,
           "color": "#1d1d1b",
           "family": "sans",
@@ -4967,8 +4946,8 @@
           "id": "s2",
           "type": "section",
           "x": 315,
-          "y": 670,
-          "w": 700,
+          "y": 630,
+          "w": 710,
           "size": 25,
           "color": "#1d1d1b",
           "family": "sans",
@@ -6272,7 +6251,7 @@
           "id": "s2",
           "type": "section",
           "x": 315,
-          "y": 630,
+          "y": 650,
           "w": 705,
           "size": 24,
           "color": "#1d1d1b",
@@ -6351,6 +6330,119 @@
     {
       "id": "c4-read2",
       "title": "4코스 읽기자료 2",
+      "type": "reading",
+      "course": 4,
+      "available": true,
+      "render": "image",
+      "mapPin": true,
+      "hasText": true,
+      "textBlocks": [
+        {
+          "id": "badge",
+          "x": 299,
+          "y": 166,
+          "w": 140,
+          "size": 24,
+          "color": "#393973",
+          "family": "sans",
+          "weight": 700,
+          "align": "center"
+        },
+        {
+          "id": "title",
+          "x": 250,
+          "y": 225,
+          "w": 1560,
+          "size": 58,
+          "color": "#ffffff",
+          "family": "sans",
+          "weight": 700
+        },
+        {
+          "id": "s1",
+          "type": "section",
+          "x": 1000,
+          "y": 390,
+          "w": 720,
+          "size": 23,
+          "color": "#1d1d1b",
+          "family": "sans",
+          "weight": 400,
+          "lineHeight": 1.5
+        },
+        {
+          "id": "s2",
+          "type": "section",
+          "x": 1000,
+          "y": 670,
+          "w": 720,
+          "size": 23,
+          "color": "#1d1d1b",
+          "family": "sans",
+          "weight": 400,
+          "lineHeight": 1.5
+        },
+        {
+          "id": "caption",
+          "x": 421,
+          "y": 875,
+          "w": 391,
+          "size": 20,
+          "color": "#333333",
+          "family": "sans",
+          "weight": 400,
+          "align": "center"
+        }
+      ],
+      "photoSlots": [
+        {
+          "rect": {
+            "x": 315,
+            "y": 410,
+            "w": 603,
+            "h": 457
+          },
+          "radius": 20
+        }
+      ],
+      "buttons": [
+        {
+          "type": "add",
+          "rect": {
+            "x": 1470,
+            "y": 935,
+            "w": 118,
+            "h": 39
+          },
+          "key": "add1",
+          "place": "up"
+        },
+        {
+          "type": "add",
+          "rect": {
+            "x": 1600,
+            "y": 935,
+            "w": 118,
+            "h": 39
+          },
+          "key": "add2",
+          "place": "up"
+        },
+        {
+          "type": "gmap",
+          "rect": {
+            "x": 451,
+            "y": 156,
+            "w": 55,
+            "h": 55
+          },
+          "key": "gmap"
+        }
+      ]
+    },
+    {
+      "id": "c4-read3",
+      "title": "4코스 읽기자료 3",
       "type": "reading",
       "course": 4,
       "available": true,
@@ -6461,129 +6553,17 @@
           "place": "up"
         },
         {
-          "type": "gmap",
-          "rect": {
-            "x": 451,
-            "y": 156,
-            "w": 55,
-            "h": 55
-          },
-          "key": "gmap"
-        }
-      ]
-    },
-    {
-      "id": "c4-read3",
-      "title": "4코스 읽기자료 3",
-      "type": "reading",
-      "course": 4,
-      "available": true,
-      "render": "image",
-      "mapPin": true,
-      "hasText": true,
-      "textBlocks": [
-        {
-          "id": "badge",
-          "x": 299,
-          "y": 166,
-          "w": 140,
-          "size": 24,
-          "color": "#393973",
-          "family": "sans",
-          "weight": 700,
-          "align": "center"
-        },
-        {
-          "id": "title",
-          "x": 250,
-          "y": 225,
-          "w": 1560,
-          "size": 58,
-          "color": "#ffffff",
-          "family": "sans",
-          "weight": 700
-        },
-        {
-          "id": "s1",
-          "type": "section",
-          "x": 1000,
-          "y": 390,
-          "w": 720,
-          "size": 23,
-          "color": "#1d1d1b",
-          "family": "sans",
-          "weight": 400,
-          "lineHeight": 1.5
-        },
-        {
-          "id": "s2",
-          "type": "section",
-          "x": 1000,
-          "y": 660,
-          "w": 720,
-          "size": 23,
-          "color": "#1d1d1b",
-          "family": "sans",
-          "weight": 400,
-          "lineHeight": 1.5
-        },
-        {
-          "id": "caption",
-          "x": 421,
-          "y": 875,
-          "w": 391,
-          "size": 20,
-          "color": "#333333",
-          "family": "sans",
-          "weight": 400,
-          "align": "center"
-        }
-      ],
-      "photoSlots": [
-        {
-          "rect": {
-            "x": 315,
-            "y": 410,
-            "w": 603,
-            "h": 457
-          },
-          "radius": 20
-        }
-      ],
-      "buttons": [
-        {
           "type": "ar",
           "rect": {
-            "x": 315,
-            "y": 805,
+            "x": 1640,
+            "y": 830,
             "w": 76,
             "h": 136
           },
           "key": "ar",
           "place": "up"
         },
-        {
-          "type": "add",
-          "rect": {
-            "x": 1470,
-            "y": 935,
-            "w": 118,
-            "h": 39
-          },
-          "key": "add1",
-          "place": "up"
-        },
-        {
-          "type": "add",
-          "rect": {
-            "x": 1600,
-            "y": 935,
-            "w": 118,
-            "h": 39
-          },
-          "key": "add2",
-          "place": "up"
-        },
+
         {
           "type": "gmap",
           "rect": {
@@ -6742,7 +6722,7 @@
           "id": "s1",
           "type": "section",
           "x": 315,
-          "y": 395,
+          "y": 385,
           "w": 705,
           "size": 23,
           "color": "#1d1d1b",
@@ -6839,6 +6819,7 @@
       "render": "image",
       "mapPin": true,
       "hasText": true,
+
       "textBlocks": [
         {
           "id": "badge",
@@ -6865,7 +6846,7 @@
           "id": "s1",
           "type": "section",
           "x": 315,
-          "y": 385,
+          "y": 395,
           "w": 705,
           "size": 23,
           "color": "#1d1d1b",

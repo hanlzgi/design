@@ -726,7 +726,7 @@
   async function ensureContent(num){
     if(num in textCache) return textCache[num];
     try{ const r=await fetch('content/text/'+num+'.json',{cache:'no-cache'}); textCache[num]=r.ok?await r.json():null; }
-    catch(e){ textCache[num]=null; }
+    catch(e){ textCache[num]=null; toast('텍스트 파일 오류: '+num+'.json — JSON 문법을 확인하세요'); }
     return textCache[num];
   }
 
