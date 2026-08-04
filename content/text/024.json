@@ -30,6 +30,16 @@
     "gmap": "https://maps.app.goo.gl/FihTML8NaMDaCQQk8"
   },
   "annotations": [
+  {
+      "term": "크라스키노",
+      "label": "크라스키노",
+      "def": "현 러시아 연해주 하산스키 군에 있는 마을"
+    },
+   {
+      "term": "단지",
+      "label": "단지",
+      "def": "손가락을 자름"
+    },
     {
       "term": "단지동맹",
       "label": "단지동맹",
