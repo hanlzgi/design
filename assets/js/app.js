@@ -611,11 +611,11 @@
     { num: '01', tag: '[독립]', region: '중국', name: '대한민국 임시 정부의 길', map: 'c1-map', pre: 'c1-prestudy', groups: [
       { label: '상하이 시기', link: 'c1-intro1', items: [['상하이 청사', 'c1-read1'], ['홍커우 공원', 'c1-read2']] },
       { label: '이동 시기', link: 'c1-intro2', items: [['자싱 김구 피난처', 'c1-read3'], ['자싱 임시 정부 요인 거주지', 'c1-read4'], ['항저우 청사', 'c1-read5'], ['창사 활동 구지 기념관', 'c1-read6'], ['류저우 활동 진열관(낙군사)', 'c1-read7']] },
-      { label: '충칭 시기', link: 'c1-intro3', items: [['한국광복군 총사령부', 'c1-read8'], ['충칭 연화지 청사', 'c1-read9'], ['한국광복군 제2지대 OSS 훈련지', 'c1-read10']] }
+      { label: '충칭 시기', link: 'c1-intro3', items: [['충칭 연화지 청사', 'c1-read8'], ['한국광복군 총사령부', 'c1-read9'], ['한국광복군 제2지대 OSS 훈련지', 'c1-read10']] }
     ] },
     { num: '02', tag: '[독립]', region: '중국/러시아', name: '항일 무장 투쟁의 길', map: 'c2-map', pre: 'c2-prestudy', groups: [
       { label: '안중근 의거', link: 'c2-intro1', items: [['안중근 단지동맹비', 'c2-read1'], ['하얼빈역 및 안중근의사기념관', 'c2-read2'], ['여순관동지방법원', 'c2-read3'], ['여순 일아감옥 구지', 'c2-read4']] },
-      { label: '독립군 양성', link: 'c2-intro2', items: [['추가가 신흥강습소 터', 'c2-read5'], ['고산자 신흥무관학교 터', 'c2-read6'], ['합니하 신흥무관학교 터', 'c2-read7']] },
+      { label: '독립군 양성', link: 'c2-intro2', items: [['추가가 신흥강습소 터', 'c2-read5'], ['합니하 신흥무관학교 터', 'c2-read6'], ['고산자 신흥무관학교 터', 'c2-read7']] },
       { label: '봉오동 전투와 청산리 대첩', link: 'c2-intro3', items: [['봉오동전투 전적비', 'c2-read8'], ['청산리항일대첩기념비', 'c2-read9'], ['한중우의공원', 'c2-read10']] }
     ] },
     { num: '03', tag: '[독립/호국]', region: '미국', name: '하와이 노동자의 나라에서 우방까지', map: 'c3-map', pre: 'c3-prestudy', groups: [
@@ -624,8 +624,8 @@
       { label: '6·25 전쟁 참전(우방)', link: 'c3-intro3', items: [['레인 빅토리호', 'c3-read9'], ['태평양 국립묘지 한국전 참전용사 헌정 기념석', 'c3-read10'], ['워싱턴 D.C. 한국전 참전용사 기념공원', 'c3-read11']] }
     ] },
     { num: '04', tag: '[독립/호국]', region: '유럽', name: '대한제국에서 6·25 전쟁 참전까지', map: 'c4-map', pre: 'c4-prestudy', groups: [
-      { label: '헤이그 특사', link: 'c4-intro1', items: [['런던 이한응 순국지', 'c4-read1'], ['헤이그 이준열사 순국지(기념관)', 'c4-read2'], ['제2회 만국 평화 회의 개최지(빈넨호프 왕궁 기사홀)', 'c4-read3']] },
-      { label: '대한민국 임시 정부 외교 활동', link: 'c4-intro2', items: [['브뤼셀 만국 평화 대회 개최지', 'c4-read4'], ['대한민국 임시 정부 파리위원부', 'c4-read5']] },
+      { label: '헤이그 특사', link: 'c4-intro1', items: [['런던 이한응 순국지', 'c4-read1'], ['제2회 만국 평화 회의 개최지(빈넨호프 왕궁 기사홀)', 'c4-read2'], ['헤이그 이준열사 순국지(기념관)', 'c4-read3']] },
+      { label: '대한민국 임시 정부 외교 활동', link: 'c4-intro2', items: [['대한민국 임시 정부 파리위원부', 'c4-read4'], ['브뤼셀 만국 평화 대회 개최지', 'c4-read5']] },
       { label: '6·25 전쟁 참전', link: 'c4-intro3', items: [['룩셈부르크 국립 군사박물관', 'c4-read6'], ['벨기에 국립대성심성당', 'c4-read7'], ['파리 한국전 참전비', 'c4-read8'], ['런던 한국전 참전기념비', 'c4-read9']] }
     ] }
   ];
