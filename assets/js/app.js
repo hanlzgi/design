@@ -616,7 +616,7 @@
     { num: '02', tag: '[독립]', region: '중국/러시아', name: '항일 무장 투쟁의 길', map: 'c2-map', pre: 'c2-prestudy', groups: [
       { label: '안중근 의거', link: 'c2-intro1', items: [['안중근 단지동맹비', 'c2-read1'], ['하얼빈역 및 안중근의사기념관', 'c2-read2'], ['여순관동지방법원', 'c2-read3'], ['여순 일아감옥 구지', 'c2-read4']] },
       { label: '독립군 양성', link: 'c2-intro2', items: [['류허 신흥강습소 터', 'c2-read5'], ['합니하 신흥무관학교 터', 'c2-read6'], ['고산자 신흥무관학교 터', 'c2-read7']] },
-      { label: '봉오동 전투와 청산리 대첩', link: 'c2-intro3', items: [['봉오동전투 전적비', 'c2-read8'], ['청산리항일대첩기념비', 'c2-read9'], ['한중우의공원', 'c2-read10']] }
+      { label: '봉오동 전투와 청산리 대첩', link: 'c2-intro3', items: [['봉오동반일전적지기념비', 'c2-read8'], ['청산리항일대첩기념비', 'c2-read9'], ['한중우의공원', 'c2-read10']] }
     ] },
     { num: '03', tag: '[독립/호국]', region: '미국', name: '하와이 노동자의 나라에서 우방까지', map: 'c3-map', pre: 'c3-prestudy', groups: [
       { label: '미국 이주 초기(정착)', link: 'c3-intro1', items: [['대한인국민회 하와이지방총본부', 'c3-read1'], ['아후이마누 대조선국민군단 병영 터', 'c3-read2']] },
