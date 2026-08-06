@@ -609,14 +609,14 @@
   // ===== 목차 팝업 — top '목차' 버튼. 코스 헤더→map, 사전조사→prestudy, 그룹→개론, 세부→읽기자료 =====
   const TOC_DATA = [
     { num: '01', tag: '[독립]', region: '중국', name: '대한민국 임시 정부의 길', map: 'c1-map', pre: 'c1-prestudy', groups: [
-      { label: '상하이 시기', link: 'c1-intro1', items: [['상하이 청사', 'c1-read1'], ['홍커우 공원', 'c1-read2']] },
+      { label: '상하이 시기', link: 'c1-intro1', items: [['상하이 청사', 'c1-read1'], ['훙커우 공원', 'c1-read2']] },
       { label: '이동 시기', link: 'c1-intro2', items: [['자싱 김구 피난처', 'c1-read3'], ['자싱 임시 정부 요인 거주지', 'c1-read4'], ['항저우 청사', 'c1-read5'], ['창사 활동 구지 기념관', 'c1-read6'], ['류저우 활동 진열관(낙군사)', 'c1-read7']] },
       { label: '충칭 시기', link: 'c1-intro3', items: [['충칭 연화지 청사', 'c1-read8'], ['한국광복군 총사령부', 'c1-read9'], ['한국광복군 제2지대 OSS 훈련지', 'c1-read10']] }
     ] },
     { num: '02', tag: '[독립]', region: '중국/러시아', name: '항일 무장 투쟁의 길', map: 'c2-map', pre: 'c2-prestudy', groups: [
       { label: '안중근 의거', link: 'c2-intro1', items: [['안중근 단지동맹비', 'c2-read1'], ['하얼빈역 및 안중근의사기념관', 'c2-read2'], ['여순관동지방법원', 'c2-read3'], ['여순 일아감옥 구지', 'c2-read4']] },
       { label: '독립군 양성', link: 'c2-intro2', items: [['류허 신흥강습소 터', 'c2-read5'], ['합니하 신흥무관학교 터', 'c2-read6'], ['고산자 신흥무관학교 터', 'c2-read7']] },
-      { label: '봉오동 전투와 청산리 대첩', link: 'c2-intro3', items: [['봉오동반일전적지기념비', 'c2-read8'], ['청산리항일대첩기념비', 'c2-read9'], ['한중우의공원', 'c2-read10']] }
+      { label: '봉오동 전투와 청산리 대첩', link: 'c2-intro3', items: [['봉오동반일전적지기념비', 'c2-read8'], ['청산리항일대첩 기념비', 'c2-read9'], ['한중우의공원', 'c2-read10']] }
     ] },
     { num: '03', tag: '[독립/호국]', region: '미국', name: '하와이 노동자의 나라에서 우방까지', map: 'c3-map', pre: 'c3-prestudy', groups: [
       { label: '미국 이주 초기(정착)', link: 'c3-intro1', items: [['대한인국민회 하와이지방총본부', 'c3-read1'], ['아후이마누 대조선국민군단 병영 터', 'c3-read2']] },

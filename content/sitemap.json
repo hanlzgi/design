@@ -749,15 +749,6 @@
             "h": 218
           },
           "radius": 20
-        },
-        {
-          "rect": {
-            "x": 1058,
-            "y": 706,
-            "w": 361,
-            "h": 220
-          },
-          "radius": 20
         }
       ],
       "buttons": []
@@ -3783,14 +3774,14 @@
       ],
       "buttons": [
         {
-          "type": "ar",
+          "type": "vr",
           "rect": {
             "x": 315,
             "y": 805,
             "w": 76,
             "h": 136
           },
-          "key": "ar",
+          "key": "vr",
           "place": "up"
         },
         {
@@ -4128,7 +4119,7 @@
       },
       "mapSvg": "assets/c3/map/c3-map.svg",
       "mapBadge": "미국",
-      "mapTitle": "하와이 이민자의 나라에서\n우방까지"
+      "mapTitle": "하와이 노동자의 나라에서\n우방까지"
     },
 
     {
