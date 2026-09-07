@@ -235,7 +235,8 @@
     (page.buttons || []).forEach(bt => {
       const rc = bt.rect, key = bt.key;
       const label = content && content.labels ? content.labels[key] : '';
-      const tipTxt = content && content.tips ? content.tips[key] : '';
+      let tipTxt = content && content.tips ? content.tips[key] : '';
+      if (!tipTxt && bt.type === 'gmap') tipTxt = '구글 지도로 보기';
       const url = content && content.links ? content.links[key] : null;
       let b;
       if (bt.type === 'ar') {
@@ -246,6 +247,10 @@
         b = el('div', 'btn-gmap', { left: px(rc.x), top: px(rc.y), width: px(rc.w), height: px(rc.h) });
         const gi = el('img', 'btn-gmap-img'); gi.src = 'assets/icons/gmap-marker.png' + V; b.appendChild(gi);
       }
+      else if (bt.type === 'inter') {
+        b = el('div', 'btn-inter', { left: px(rc.x), top: px(rc.y), width: px(rc.w), height: px(rc.h) });
+        b.textContent = label || '인터랙티브 활동';
+      }
       else if (bt.type === 'vr') {
         b = el('div', 'btn-vr', { left: px(rc.x), top: px(rc.y), width: px(rc.w), height: px(rc.h) });
         b.innerHTML = '<img class="ar-ico-img" src="assets/icons/vr-ico.svg' + V + '" alt="VR">';
@@ -254,6 +259,7 @@
       if (url) b.addEventListener('click', () => window.open(url, '_blank'));
       if (tipTxt) {
         const tip = el('div', 'btn-tip'); tip.textContent = tipTxt; tipLayer.appendChild(tip);
+        b.setAttribute('aria-label', tipTxt);
         b.addEventListener('mouseenter', () => { positionTip(tip, rc, bt.place); tip.classList.add('show'); });
         b.addEventListener('mouseleave', () => tip.classList.remove('show'));
       }

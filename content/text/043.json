@@ -15,16 +15,19 @@
   },
   "labels": {
     "add1": "추가자료1",
-    "add2": "추가자료2"
+    "add2": "추가자료2",
+    "inter": "인터랙티브 활동"
   },
   "tips": {
     "add1": "나의 독립영웅 - 박용만",
-    "add2": "하와이 독립군 자료 100년 만에 공개"
+    "add2": "하와이 독립군 자료 100년 만에 공개",
+    "inter": "내가 미주 한인이라면"
   },
   "links": {
     "add1": "https://youtu.be/5CDUBblF-pQ",
     "add2": "https://m.ktv.go.kr/news/latest/view?content_id=490133",
-    "gmap": "https://maps.app.goo.gl/J2EvKzmmJjz7YqNdA"
+    "gmap": "https://maps.app.goo.gl/J2EvKzmmJjz7YqNdA",
+    "inter": "https://hanlzgi.github.io/inter/"
   },
   "annotations": [
     {

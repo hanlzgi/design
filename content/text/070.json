@@ -16,18 +16,21 @@
   "labels": {
     "add1": "추가자료1",
     "add2": "추가자료2",
-    "add3": "추가자료3"
+    "add3": "추가자료3",
+    "inter": "인터랙티브 활동"
   },
   "tips": {
     "add1": "한국전쟁 참전 유엔군 프랑스대대의 전설",
     "add2": "몽클라르 중령",
-    "add3": "지평의병·지평리전투기념관"
+    "add3": "지평의병·지평리전투기념관",
+    "inter": "내가 몽클라르였다면"
   },
   "links": {
     "add1": "https://www.unpm.or.kr/un2022/sub.php?&MenuID=122&bCode=X3&cate=&st=&ss=&gotoPage=1&mode=view&bo_no=458",
     "add2": "https://youtu.be/QrdPs5C58YI",
     "add3": "https://edu.mpva.go.kr/data/book/mpvael4.do#page=52",
-    "gmap": "https://maps.app.goo.gl/4iD8GErHnxYC8EQWA"
+    "gmap": "https://maps.app.goo.gl/4iD8GErHnxYC8EQWA",
+    "inter": "https://hanlzgi.github.io/inter/"
   },
   "annotations": [
     {

@@ -650,12 +650,13 @@ body.is-portrait .portrait {
   background: var(--color-accent);
 }
 
+/* frm-panel(left 155, w 1750) 안쪽으로 — 좌측 UI 레일과 겹치지 않게 */
 .gal-prev {
-  left: 46px;
+  left: 201px;
 }
 
 .gal-next {
-  right: 46px;
+  right: 61px;
 }
 
 .gal-count {
@@ -736,6 +737,32 @@ body.is-portrait .portrait {
 }
 
 .btn-add:active {
+  transform: translate(2px, 2px);
+}
+
+/* 인터랙티브 활동 — 추가자료(.btn-add, 네이비)와 구별되는 색 */
+.btn-inter {
+  position: absolute;
+  z-index: 11;
+  background: #c2410c;
+  color: #fff;
+  border-radius: 999px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 18px;
+  transition: transform .1s ease;
+}
+
+.btn-inter:hover {
+  transform: scale(1.02);
+  background: #a83609;
+}
+
+.btn-inter:active {
   transform: translate(2px, 2px);
 }
 
@@ -1845,7 +1872,7 @@ body.is-portrait .portrait {
 .note-scrap-ico { margin-right: 12px; }
 
 /* ===== 터치 기기: 더블탭 줌 오동작 방지 ===== */
-.hot, .pager button, .quiz-opt, .page-btn, .page-photo, .btn-ar, .btn-vr, .btn-gmap, .btn-add,
+.hot, .pager button, .quiz-opt, .page-btn, .page-photo, .btn-ar, .btn-vr, .btn-gmap, .btn-add, .btn-inter,
 .map-hot, .map-close, .nav-zone, .toc-card, .scrap-cell, .gal-nav, .reveal-btn { touch-action: manipulation; }
 
 /* ===== 지도 카드 X 닫기 버튼 (딤 클릭 닫기는 유지) ===== */
